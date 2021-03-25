@@ -8,5 +8,6 @@
 </head>
 <body>
     <h1>Bienvenido</h1>
+    <a href="./reservas/reserva.php">Ir a reservar</a>
 </body>
 </html>
