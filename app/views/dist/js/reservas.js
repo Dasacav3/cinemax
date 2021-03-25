@@ -1,5 +1,5 @@
 function listarReservas() {
-	fetch("../../models/reservas/listarReserva.php", {
+	fetch("../../models/listarReserva.php", {
 		method: "POST",
 	})
 		.then((response) => response.text())
