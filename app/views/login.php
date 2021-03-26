@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./dist/css/normalize.css">
-    <link rel="stylesheet" href="./dist/css/main.css">
-    <link rel="shortcut icon" href="./dist/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="dist/css/normalize.css">
+    <link rel="stylesheet" href="dist/css/main.css">
+    <link rel="shortcut icon" href="dist/img/favicon.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/ef5bd2f060.js" crossorigin="anonymous"></script>
     <title>Iniciar sesión</title>
 </head>
@@ -28,7 +28,7 @@
             </form>
             <div class="register">
                 <p>
-                    <a href="./usuarios/registro.php">¿No tienes cuenta? Crea tu cuenta</a>
+                    <a href="registro.php">¿No tienes cuenta? Crea tu cuenta</a>
                 </p>
             </div> <br>
             <hr> <br>

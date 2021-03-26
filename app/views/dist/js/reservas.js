@@ -1,6 +1,6 @@
 listarReservas();
 function listarReservas() {
-	fetch("../../models/listarReserva.php", {
+	fetch("../models/listarReserva.php", {
 		method: "POST",
 	})
 		.then((response) => response.text())
@@ -10,7 +10,7 @@ function listarReservas() {
 }
 
 registrar.addEventListener("click", () => {
-	fetch("../../models/añadirReserva.php", {
+	fetch("../models/añadirReserva.php", {
 		method: "POST",
 		body: new FormData(form_register),
 	})
@@ -41,7 +41,7 @@ function eliminarReserva(id) {
 		cancelButtonText: "NO",
 	}).then((result) => {
 		if (result.isConfirmed) {
-			fetch("../../models/eliminarReserva.php", {
+			fetch("../models/eliminarReserva.php", {
 				method: "POST",
 				body: id,
 			})
@@ -59,43 +59,13 @@ function eliminarReserva(id) {
 	});
 }
 
-// function editarReserva(id) {
-// 	fetch("../../models/actualizarReserva.php", {
-// 		method: "POST",
-// 		body: id,
-// 	})
-// 		.then((response) => response.text())
-// 		.then((response) => {
-// 			console.log(response);
-// 			const id_reserva = response;
-// 			modificar.addEventListener("click", () => {
-// 				fetch("../../models/editarReserva.php", {
-// 					method: "POST",
-// 					data: id_reserva
-// 				}).then((response) => response.json())
-// 				.then((response) =>{
-// 					console.log(response);
-// 				})
-// 				Swal.fire({
-// 					icon: "success",
-// 					title: "Modificado",
-// 					showConfirmButton: false,
-// 					timer: 1500,
-// 				});
-// 				form_edit.reset();
-// 				listarReservas();
-// 			});
-// 		});
-// }
-
 function Editar(id) {
-	fetch("../../models/actualizarReserva.php", {
+	fetch("../models/actualizarReserva.php", {
 		method: "POST",
 		body: id,
 	})
 		.then((response) => response.json())
 		.then((response) => {
-			console.log(response);
 			reserva1.value = response.id_reserva;
 			pelicula1.value = response.id_pelicula;
 			sala1.value = response.numero_sala;
@@ -107,13 +77,12 @@ function Editar(id) {
 
 
 modificar.addEventListener("click", () => {
-	fetch("../../models/editarReserva.php", {
+	fetch("../models/editarReserva.php", {
 		method: "POST",
 		body: new FormData(form_edit),
 	})
 		.then((response) => response.text())
 		.then((response) => {
-			console.log(response);
 			if (response == "ok") {
 				Swal.fire({
 					icon: "success",
@@ -126,3 +95,52 @@ modificar.addEventListener("click", () => {
 			}
 		});
 });
+
+
+
+// Modals reservaciones
+var pop_up_add = document.getElementById("pop_up_add");
+var pop_up_wrap_add = document.getElementById("form_register");
+
+var pop_up_edit = document.getElementById("pop_up_edit");
+var pop_up_wrap_edit = document.getElementById("form_edit");
+
+var abrir_add = document.getElementById('abrirPopup-add');
+var abrir_edit = document.getElementsByClassName('abrirPopup-edit');
+
+function showPopup_add() {
+	pop_up_add.classList.add("show");
+	pop_up_wrap_add.classList.add("show");
+}
+
+function showPopup_edit() {
+	pop_up_edit.classList.add("show");
+	pop_up_wrap_edit.classList.add("show");
+}
+
+abrir_add.addEventListener("click", () => {
+	showPopup_add();
+});
+
+
+function abrir(){
+	for (var i = 0; i < abrir_edit.length; i++) {
+		abrir_edit[i].addEventListener("click", () => {
+			showPopup_edit();
+		});
+	}
+}
+
+var cerrar_add = document.getElementById("closePopup-add");
+var cerrar_edit = document.getElementById("closePopup-edit");
+
+
+cerrar_add.addEventListener('click', () =>{
+	pop_up_add.classList.remove("show");
+	pop_up_wrap_add.classList.remove("show");
+})
+
+cerrar_edit.addEventListener('click', () =>{
+	pop_up_edit.classList.remove("show");
+	pop_up_wrap_edit.classList.remove("show");
+})

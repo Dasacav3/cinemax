@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +11,24 @@
     <script src="https://kit.fontawesome.com/ef5bd2f060.js" crossorigin="anonymous"></script>
     <title>Cinemax - Inicio</title>
 </head>
+
 <body>
-    <h1>Bienvenido</h1>
-    <a href="./reservas/reserva.php">Ir a reservar</a>
-    <a href="./login.php">Cerrar sesión</a>
+    <header class="main-header">
+        <div class="main-header-content">
+            <div class="icon">
+                <a href="main.php">
+                    <img src="./dist/img/cinemax.png" alt="">
+                </a>
+            </div>
+            <nav class="main-nav-bar">
+                <a href="./reserva.php"><i class="fas fa-bookmark"></i> Reservaciones</a>
+                <a href="./login.php"> <i class="fas fa-power-off"></i> Cerrar sesión</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1>Peliculas destacadas</h1>
+    </main>
 </body>
+
 </html>

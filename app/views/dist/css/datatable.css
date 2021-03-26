@@ -2,8 +2,8 @@
 
 :root {
 	--primary-color: #fff;
-	--secondary-color: rgb(61, 68, 73);
-	--highlight-color: var(--middle-blue-green);
+	--secondary-color: rgb(85, 58, 58);
+	--highlight-color: var(--gray-dark);
 
 	--dt-status-available-color: greenyellow;
 	--dt-status-canceled-color: lightsalmon;
@@ -15,7 +15,7 @@
 
 	--dt-border-radius: 5px;
 
-	--dt-background-color-container: #2a3338;
+	--dt-background-color-container: #3d0f0f;
 }
 
 .tools button {
@@ -27,7 +27,7 @@
 	background-color: var(--dt-background-color-container);
 	border-radius: var(--dt-border-radius);
 	color: var(--primary-color);
-	width: 800px;
+	width: 1000px;
 	margin: 0 auto;
 	font-size: 16px;
 }
@@ -148,7 +148,7 @@
 
 .datatable-container .datatable th {
 	font-weight: bolder;
-	text-align: left;
+	text-align: center;
 	border-bottom: solid 1px var(--secondary-color);
 }
 
@@ -207,4 +207,20 @@
 
 .datatable-container .datatable tbody tr .canceled::before {
 	background-color: var(--dt-status-canceled-color);
+}
+
+.btn-edit,
+.btn-delete{
+	padding: 0.2em 1em;
+	border-radius: 5px;
+	border: none;
+	font-weight: 600;
+}
+
+.btn-edit{
+	background: var(--deep-taupe);
+}
+
+.btn-delete{
+	background: var(--red-dark);
 }

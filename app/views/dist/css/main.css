@@ -255,3 +255,132 @@ body::-webkit-scrollbar-thumb {
 	font-weight: 600;
 	font-size: 18px;
 }
+
+
+/* ------------------------------------------------------------- */
+/* Main */
+/* ------------------------------------------------------------- */
+
+.main-header{
+	height: 100px;
+	background: var(--gray-dark);
+	display: flex;
+	justify-content: center;
+}
+
+.main-header-content{
+	width: 90%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--champagne-pink);
+}
+
+.main-header-content .icon{
+	width: 200px;
+}
+
+.main-nav-bar{
+	width: 500px;
+	display: flex;
+    justify-content: center;
+}
+
+.main-nav-bar a{
+	text-decoration: none;
+	color: var(--champagne-pink);
+	margin: 0 1em;
+	transition: padding cubic-bezier(0.755, 0.05, 0.855, 0.06) 0.75s;
+}
+
+.main-nav-bar a:hover{
+	border-bottom: 2px solid var(--champagne-pink);
+	transform: scale(1.1);
+}
+
+/* ------------------------------------------------------------- */
+/* Reservas */
+/* ------------------------------------------------------------- */
+
+.main-content  h1{
+	color: var(--champagne-pink);
+	text-align: center;
+}
+
+
+.form_container{
+	background: var(--gray-dark);
+	border-radius: 1em;
+	width: 360px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 1.5em 1em;
+	color: var(--champagne-pink);
+}
+
+.form_container form h4{
+	font-size: 1.5em;
+	margin-bottom: 1em;
+	text-align: center;
+}
+
+#form_register input,
+#form_register select,
+#form_edit input,
+#form_edit select{
+	width: 300px;
+	height: 2em;
+	border: none;
+	border-radius: 5px;
+}
+
+#form_register #registrar,
+#form_edit #modificar{
+	margin-top: 1em;
+	background: var(--red-dark);
+}
+
+/* Modals reservas */
+
+.pop-up{
+    background: rgba(48, 48, 48, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+	width: 100%;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+}
+
+.pop-up-wrap{
+    transform: scale(0.6);
+    opacity: 0;
+	background: var(--gray-dark);
+    transition: .3s ease all;
+	padding: 20px 20px;
+	position: relative;
+	border-radius: 1.5em;
+	box-shadow: -8px 9px 48px 9px rgba(0,0,0,0.69);
+}
+
+.closePopup{
+    color: var(--red-dark);
+	font-size: 1.5em;
+    padding: 1px 4px;
+}
+
+
+.pop-up.show{
+    visibility: visible;
+}
+
+.pop-up-wrap.show{
+    transform: scale(1);
+    opacity: 1;
+}

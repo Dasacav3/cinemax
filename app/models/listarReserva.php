@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../views/dist/css/datatable.css">
+    <title>Document</title>
+</head>
+<body>
+
 <?php
 
     include("../controller/databasePDO.php");
@@ -15,8 +26,13 @@
             <td>" . $data['FECHA_RESERVACION'] . "</td>
             <td>" . $data['HORA_RESERVACION'] . "</td>
             <td>" . $data['ESTADO_RESERVACION'] . "</td> 
-            <td><button type='button' onclick=Editar('" . $data['ID_RESERVA'] . "')>Editar</button>
-                <button type='button' onclick=eliminarReserva('" . $data['ID_RESERVA'] . "')>Eliminar</button>
+            <td><button class='abrirPopup-edit btn-edit' type='button' onclick=Editar('" . $data['ID_RESERVA'] . "');abrir()>Editar</button>
+                <button class='btn-delete' type='button' onclick=eliminarReserva('" . $data['ID_RESERVA'] . "')>Eliminar</button>
             </td>   
         </tr>";
     }
+
+?>
+
+</body>
+</html>
