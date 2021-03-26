@@ -7,7 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="../../lib/sweetaler2/sweetalert2.all.min.js"></script>
-    <link rel="stylesheet" href="../../lib/sweetaler2/sweetalert2.all.min.css">
+  <link rel="stylesheet" href="../../lib/sweetaler2/sweetalert2.all.min.css">
+  <style>
+    @import url("../views/dist/css/colors_fonts.css");
+
+    body{
+        background: var(--gray-dark);
+    }
+
+    * {
+      font-family: "Poppins", sans-serif;
+    }
+  </style>
 </head>
 
 <body>

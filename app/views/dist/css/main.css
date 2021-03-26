@@ -177,6 +177,67 @@ body::-webkit-scrollbar-thumb {
     border-radius: 2em;
 }
 
+/* ------------------------------------------------------------- */
+/* Login y registro */
+/* ------------------------------------------------------------- */
+
+.login_container,
+.registro-container{
+	display: flex;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+}
+
+.login_container .login,
+.registro-container .registro{
+	background: var(--gray-dark);
+	color: var(--champagne-pink);
+	border-radius: 2em;
+	padding: 3em 2em;
+	text-align: center;
+}
+
+.login_container .login h2{
+	margin-bottom: 2em
+}
+
+.login_container .login input,
+.registro-container .registro input{
+	width: 300px;
+	height: 2.3em;
+	border-radius: 5px;
+	border: 1px solid black;
+	font-weight: 600;
+}
+
+.login_container .login input[type="submit"]:hover,
+.registro-container .registro input[type="submit"]:hover{
+	transition: transform 0.7s;
+	transform: scale(1.1);
+}
+
+.login_container .login input[type="submit"],
+.registro-container .registro input[type="submit"]{
+	background: var(--red-dark);
+	font-weight: bold;
+	border: none;
+	margin: 2em 0;
+	color: rgb(229, 151, 151);
+}
+
+.login_container .login .register a,
+.login_container .login .return a,
+.registro-container .registro a{
+	text-decoration: none;
+	color: var(--champagne-pink);
+}
+
+.login_container .login form,
+.registro-container .registro form{
+	text-align: start;
+}
+
 
 /* ------------------------------------------------------------- */
 /* Footer */

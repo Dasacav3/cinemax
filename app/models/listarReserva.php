@@ -15,7 +15,7 @@
             <td>" . $data['FECHA_RESERVACION'] . "</td>
             <td>" . $data['HORA_RESERVACION'] . "</td>
             <td>" . $data['ESTADO_RESERVACION'] . "</td> 
-            <td><button type='button' onclick=editarReserva('" . $data['ID_RESERVA'] . "')>Editar</button>
+            <td><button type='button' onclick=Editar('" . $data['ID_RESERVA'] . "')>Editar</button>
                 <button type='button' onclick=eliminarReserva('" . $data['ID_RESERVA'] . "')>Eliminar</button>
             </td>   
         </tr>";
