@@ -14,14 +14,14 @@
 
 <body>
     <header class="nav-bar">
-        <div class="titulo">
-            <h1>Cinemax</h1>
+        <div class="logo">
+            <img src="./app/views/dist/img/cinemax.png" alt="">
         </div>
         <nav>
             <ul>
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="#navNosotros">Nosotros</a></li>
-                <li><a href="contactoNav">Contacto</a></li>
+                <li><a href="#contactoNav">Contacto</a></li>
                 <li><a href="./app/views/login.php">Iniciar sesión</a></li>
             </ul>
         </nav>
@@ -30,11 +30,10 @@
     <div class="welcome-slide">
         <div class="welcome-slide-content">
             <h1 class="welcome-slide__h1">
-                Sistema de Reservas Cine
+                Sistema de Reservas Cine <br>
+                Cinemax
             </h1>
             <div class="welcome-slide-container">
-                <h3 class="welcome-slide__h3">Cinemax</h3>
-                <img src="./app/views/dist/img/illustration/special_event.svg" alt="" class="welcome-slide__img" />
                 <button class="welcome-button"><a href="#navNosotros">Conoce más</a></button>
             </div>
         </div>
@@ -79,10 +78,9 @@
     <section class="contacto" id="contactoNav">
         <div class="contacto-container">
             <form class="contacto-form">
-            <h2>Contactanos</h2>
-                <p>Nombre</p>
-                <br />
-                <input type="text" id="name" required /> <br />
+                <h2>Contactanos</h2> <br>
+                <p>Nombre</p> <br />
+                <input type="text" id="name" required /> <br>
                 <p>Correo electronico</p>
                 <br />
                 <input type="email" name="" id="email" required /> <br />
@@ -100,14 +98,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div>
-            <p>&copy Todos los derechos reservados | 2021 | Cinemax</p>
+            <p>&copy Todos los derechos reservados | 2021 | Cinemax | Created by @Dasacav3</p>
         </div>
     </footer>
-    <script>
-        document.querySelector(".menu-btn").addEventListener("click", () => {
-            document.querySelector(".nav-bar__nav-ul").classList.toggle("show");
-        });
-    </script>
+
 </body>
 
 </html>

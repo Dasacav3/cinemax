@@ -44,6 +44,8 @@
                 <option value="8">Sonic la película</option>
                 <option value="9">Soul</option>
                 <option value="10">El increíble castillo vagabundo</option>
+                <option value="11">Avengers Endgame</option>
+                <option value="12">Misterio a bordo</option>
             </select> <br>
             <label for="">Sala</label> <br>
             <input type="text" name="sala" id="sala"> <br>
@@ -136,6 +138,8 @@
                 <option value="8">Sonic la película</option>
                 <option value="9">Soul</option>
                 <option value="10">El increíble castillo vagabundo</option>
+                <option value="11">Avengers Endgame</option>
+                <option value="12">Misterio a bordo</option>
             </select> <br>
             <label for="">Sala</label> <br>
             <input type="text" name="sala1" id="sala1"> <br>
