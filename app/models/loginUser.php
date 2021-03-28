@@ -29,8 +29,9 @@
 
     $nombre = $_POST['user_name'];
     $password = $_POST['password'];
+    $tipo = $_POST['tipo_usuario'];
 
-    $registros = mysqli_query($conn, "SELECT * FROM usuario WHERE nombre_usuario = '$nombre' AND clave_usuario = '$password'");
+    $registros = mysqli_query($conn, "SELECT * FROM usuario WHERE nombre_usuario = '$nombre' AND clave_usuario = '$password' AND tipo_usuario = '$tipo'");
     if ($reg = mysqli_fetch_array($registros)) {
     ?>
         <script>

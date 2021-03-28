@@ -1,12 +1,14 @@
-const formulario = document.getElementById("form");
-const nombre = document.getElementById("nombre");
-const apellido = document.getElementById("apellido");
-const fechaNacimiento = document.getElementById("nacimiento");
+
+// Registro
+
+const formulario = document.getElementById("form_register");
+const nombre = document.getElementById("nombres");
+const apellido = document.getElementById("apellidos");
+const edad = document.getElementById("edad");
 const cel = document.getElementById("cel");
-const email = document.getElementById("email");
-const pass = document.getElementById("password");
-const pass2 = document.getElementById("password2");
-const terminos = document.getElementById("terminos");
+const email = document.getElementById("correo");
+const pass = document.getElementById("pass");
+const pass2 = document.getElementById("pass2");
 const error = document.getElementById("warnings");
 
 formulario.addEventListener("submit", (e) => {
@@ -25,14 +27,8 @@ formulario.addEventListener("submit", (e) => {
         registrar = true;
     }
 
-    const date = fechaNacimiento.value;
-    const dateBirth = new Date(date);
-    const dateNow = new Date();
-
-    const result = dateNow.getFullYear() - dateBirth.getFullYear();
-
-    if(result < 18 || fechaNacimiento.value == ""){
-        warnings+= `<p>La fecha de nacimiento es invalida <i class="fas fa-times-circle"></i><p/>`;
+    if(!edad > 18){
+        warnings+= `<p>La edad es invalida <i class="fas fa-times-circle"></i><p/>`;
         registrar = true;
     }
 
@@ -63,3 +59,4 @@ formulario.addEventListener("submit", (e) => {
         e.currentTarget.submit();
     }
 });
+

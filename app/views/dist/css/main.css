@@ -218,6 +218,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .login_container .login input,
+.login_container .login select,
 .registro-container .registro input {
 	width: 300px;
 	height: 2.3em;

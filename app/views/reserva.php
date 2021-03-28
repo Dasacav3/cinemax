@@ -56,8 +56,9 @@
             <input type="date" name="fecha" id="fecha"> <br>
             <label for="">Hora</label> <br>
             <input type="time" name="hora" id="hora"> <br>
-            <input type="button" value="Registrar" id=registrar> <br>
-            <input type="reset" value="Limpiar" onclick=''> <br>
+            <input type="submit" value="Registrar" id=registrar> <br>
+            <input type="reset" value="Limpiar" onclick=''> <br> <hr>
+            <div class="warnings" id="alertas"></div> <br> 
         </form>
     </div>
     <div class="main-content">

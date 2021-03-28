@@ -10,6 +10,43 @@ function listarReservas(busqueda) {
 		});
 }
 
+// Reservas
+
+const formReserva = document.getElementById("form_register");
+const pelicula = document.getElementById("pelicula");
+const sala = document.getElementById("sala");
+const asiento = document.getElementById("asiento");
+const fecha = document.getElementById("fecha");
+const hora = document.getElementById("hora");
+const error2 = document.getElementById("alertas");
+
+
+formReserva.addEventListener("submit", (e) =>{
+    e.preventDefault();
+
+    let alertas = "";
+    let registrar_1 = false;
+    error2.innerHTML = "";
+
+    if(!isNaN(pelicula)){
+        alertas += `<p>El numero de pelicula es invalido <i class="fas fa-times-circle"></i><p/>`;
+        registrar = true;
+    }
+
+    if(!isNaN(sala)){
+        alertas  += `<p>El numero de pelicula es invalido <i class="fas fa-times-circle"></i><p/>`;
+        registrar = true;
+    }
+
+    if(registrar_1){
+        error2.innerHTML = alertas 
+    }else{
+        error2.innerHTML = "";
+        e.currentTarget.submit();
+    }
+
+})
+
 registrar.addEventListener("click", () => {
 	fetch("../models/añadirReserva.php", {
 		method: "POST",

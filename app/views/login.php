@@ -20,6 +20,12 @@
             </div>
             <h2>Inicio de sesión</h2>
             <form class="form-login" id="form" method="POST" action="../models/loginUser.php">
+                <label for="user_name">Tipo de usuario</label> <br />
+                <select name="tipo_usuario" id="tipo_usuario">
+                    <option value=""></option>
+                    <option value="Cliente">Cliente</option>
+                    <option value="Administrador">Administrador</option>
+                </select> <br>
                 <label for="user_name">Nombre de usuario</label> <br />
                 <input type="email" id="user_name" name="user_name" required placeholder="example@domain.com" /> <br>
                 <label for="password">Contraseña</label> <br />

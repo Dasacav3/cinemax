@@ -16,24 +16,26 @@
             <h1>Registro de usuario</h1>
             <form id="form_register" method="POST" action="../models/registrarUser.php">
                 <label for="">Nombres</label> <br>
-                <input type="text" name="nombres"> <br>
+                <input type="text" name="nombres" id="nombres"> <br>
                 <label for="">Apellidos</label> <br>
-                <input type="text" name="apellidos"> <br>
+                <input type="text" name="apellidos" id="apellidos"> <br>
                 <label for="">Edad</label> <br>
-                <input type="number" name="edad"> <br>
+                <input type="number" name="edad" id="edad"> <br>
                 <label for="">Email</label> <br>
-                <input type="email" name="correo"> <br>
+                <input type="email" name="correo" id="correo"> <br>
                 <label for="">Celular</label> <br>
-                <input type="text" name="cel"> <br>
+                <input type="text" name="cel" id="cel"> <br>
                 <label for="">Contraseña</label> <br>
-                <input type="password" name="pass"> <br>
+                <input type="password" name="pass" id="pass"> <br>
                 <label for="">Repetir contraseña</label> <br>
-                <input type="password" name="pass2"> <br>
+                <input type="password" name="pass2" id="pass2"> <br>
                 <input type="submit" value="Registrar"> <br>
-            </form>
+                <div class="warnings" id="warnings"></div> <br> <hr>
+            </form> <br>
             <p><a href="login.php">Volver al login</a></p>
         </div>
     </div>
-    <script src="dist/js/reservas.js"></script>
+    <script src="dist/js/regularExpression.js"></script>
+    <script src="dist/js/formValidation.js"></script>
 </body>
 </html>
