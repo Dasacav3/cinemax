@@ -23,6 +23,7 @@
             </div>
             <nav class="main-nav-bar">
                 <a href="./reserva.php"><i class="fas fa-bookmark"></i> Reservaciones</a>
+                <a href="./usuario.php"><i class="fas fa-user"></i> Usuarios</a>
                 <a href="./login.php"> <i class="fas fa-power-off"></i> Cerrar sesión</a>
             </nav>
         </div>

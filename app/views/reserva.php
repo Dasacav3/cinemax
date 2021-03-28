@@ -23,6 +23,7 @@
             </div>
             <nav class="main-nav-bar">
                 <a href="./main.php"><i class="fas fa-film"></i> Inicio</a>
+                <a href="./usuario.php"><i class="fas fa-user"></i> Usuarios</a>
                 <a href="./login.php"> <i class="fas fa-power-off"></i> Cerrar sesión</a>
             </nav>
         </div>
@@ -74,7 +75,7 @@
                     </ul>
                 </div>
                 <div class="search">
-                    <input type="text" class="search-input" id="search-input" />
+                    <input type="text" class="search-input" id="search_input" />
                 </div>
             </div>
             <table class="datatable">
@@ -149,6 +150,13 @@
             <input type="date" name="fecha1" id="fecha1"> <br>
             <label for="">Hora</label> <br>
             <input type="time" name="hora1" id="hora1"> <br>
+            <label for="">Estado</label> <br>
+            <select name="estado1" id="estado1">
+                <option value=""></option>
+                <option value="Activa">Activa</option>
+                <option value="Completada">Completada</option>
+                <option value="Cancelada">Cancelada</option>
+            </select> <br>
             <input type="button" value="Actualizar" id=modificar> <br>
             <input type="reset" value="Limpiar"> <br>
         </form>

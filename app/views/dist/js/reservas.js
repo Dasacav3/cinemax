@@ -1,7 +1,8 @@
 listarReservas();
-function listarReservas() {
+function listarReservas(busqueda) {
 	fetch("../models/listarReserva.php", {
 		method: "POST",
+		body: busqueda
 	})
 		.then((response) => response.text())
 		.then((response) => {
@@ -72,6 +73,7 @@ function Editar(id) {
 			asiento1.value = response.codigo_asiento;
 			fecha1.value = response.fecha_reservacion;
 			hora1.value = response.hora_reservacion;
+			estado1.value = response.estado_reservacion;
 		});
 }
 
@@ -94,6 +96,15 @@ modificar.addEventListener("click", () => {
 				listarReservas();
 			}
 		});
+});
+
+search_input.addEventListener("keyup", () =>{
+	const valor = search_input.value;
+	if(valor == ""){
+		listarReservas();
+	}else{
+		listarReservas(valor)
+	}
 });
 
 

@@ -10,11 +10,15 @@
 <body>
 
 <?php
-
+    $data = file_get_contents("php://input");
     include("../controller/databasePDO.php");
     $data = file_get_contents("php://input");
     $consulta = $pdo->prepare("SELECT * FROM reserva ORDER BY id_reserva DESC");
     $consulta->execute();
+    if($data != ""){
+        $consulta = $pdo->prepare("SELECT * FROM reserva WHERE id_reserva LIKE '%".$data."%' OR id_pelicula LIKE '%".$data."%' OR id_cliente LIKE '%".$data."%' OR numero_sala LIKE '%".$data."%' OR codigo_asiento LIKE '%".$data."%' OR fecha_reservacion LIKE '%".$data."%' OR hora_reservacion LIKE '%".$data."%' OR estado_reservacion LIKE '%".$data."%'");
+        $consulta->execute();
+    }
     $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
     foreach ($resultado as $data){
         echo "<tr>
