@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Versión del servidor:         10.4.17-MariaDB - mariadb.org binary distribution
+-- Versión del servidor:         10.4.18-MariaDB - mariadb.org binary distribution
 -- SO del servidor:              Win64
--- HeidiSQL Versión:             11.2.0.6213
+-- HeidiSQL Versión:             11.0.0.5919
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -10,7 +10,6 @@
 /*!50503 SET NAMES utf8mb4 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
 -- Volcando estructura de base de datos para cinemax
@@ -50,16 +49,17 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   UNIQUE KEY `CELULAR_CLIENTE` (`CELULAR_CLIENTE`),
   KEY `ID_USUARIO` (`ID_USUARIO`),
   CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`ID_USUARIO`) REFERENCES `usuario` (`ID_USUARIO`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla cinemax.cliente: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla cinemax.cliente: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
 INSERT INTO `cliente` (`ID_CLIENTE`, `NOMBRE_CLIENTE`, `APELLIDO_CLIENTE`, `EDAD`, `EMAIL_CLIENTE`, `CELULAR_CLIENTE`, `ID_USUARIO`) VALUES
 	(1, 'Daniel Santiago', 'Velasquez', 17, 'dscv3719@gmail.com', '3194608272', 1),
-	(2, 'Fabian', 'Combita', 18, 'fdcombita@misena.edu.co', '3222245728', 2),
-	(3, 'Alejandra', 'Niño', 23, 'manino645@misena.edu.co', '3208099556', 3),
-	(4, 'Fabian', 'Combita', 18, 'fdcombita24@misena.edu.co', '815322542', 4),
-	(6, 'Daniel', 'Carrillo', 17, 'dscarrillo37@misena.edu.co', '3194608278', 5);
+	(8, 'Fabian', 'Combita', 18, 'fdcombita24@misena.edu.co', '3114308741', 8),
+	(12, 'Jeison', 'Prieto', 18, 'japs@gmail.com', '3022470908', 12),
+	(13, 'Alejandra', 'Niño', 23, 'aleja14@gmail.com', '3208099556', 13),
+	(14, 'Sergio', 'Ayala', 18, 'sergioayala@gmail.com', '3172589094', 14),
+	(15, 'Jairo', 'Poveda', 20, 'jairopoveda@gmail.com', '3197364101', 15);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
 -- Volcando estructura para tabla cinemax.pelicula
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `pelicula` (
   PRIMARY KEY (`ID_PELICULA`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla cinemax.pelicula: ~8 rows (aproximadamente)
+-- Volcando datos para la tabla cinemax.pelicula: ~12 rows (aproximadamente)
 /*!40000 ALTER TABLE `pelicula` DISABLE KEYS */;
 INSERT INTO `pelicula` (`ID_PELICULA`, `TITULO_PELICULA`, `GENERO`, `AÑO_PUBLICACION`) VALUES
 	(1, 'Godzilla vs. Kong', 'Accion/Ciencia Ficcion', '2021'),
@@ -103,18 +103,22 @@ CREATE TABLE IF NOT EXISTS `reserva` (
   KEY `ID_PELICULA` (`ID_PELICULA`),
   CONSTRAINT `reserva_ibfk_1` FOREIGN KEY (`ID_CLIENTE`) REFERENCES `cliente` (`ID_CLIENTE`),
   CONSTRAINT `reserva_ibfk_2` FOREIGN KEY (`ID_PELICULA`) REFERENCES `pelicula` (`ID_PELICULA`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=444 DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla cinemax.reserva: ~6 rows (aproximadamente)
+-- Volcando datos para la tabla cinemax.reserva: ~11 rows (aproximadamente)
 /*!40000 ALTER TABLE `reserva` DISABLE KEYS */;
 INSERT INTO `reserva` (`ID_RESERVA`, `ID_PELICULA`, `ID_CLIENTE`, `NUMERO_SALA`, `CODIGO_ASIENTO`, `FECHA_RESERVACION`, `HORA_RESERVACION`, `ESTADO_RESERVACION`) VALUES
 	(35, 2, 1, 30, 45, '2021-03-30', '16:25:00', 'Activa'),
 	(38, 11, 1, 30, 40, '2021-03-30', '17:25:00', 'Activa'),
-	(41, 1, 1, 33, 33, '2021-03-30', '16:25:00', 'Activa'),
 	(65, 10, 1, 21, 14, '2021-03-30', '12:48:00', 'Activa'),
 	(66, 1, 1, 21, 10, '2021-03-23', '12:46:00', 'Activa'),
-	(67, 8, 1, 34, 21, '2021-03-23', '13:47:00', 'Activa'),
-	(68, 12, 1, 24, 21, '2021-03-22', '14:50:00', 'Activa');
+	(68, 12, 1, 24, 21, '2021-03-22', '14:50:00', 'Activa'),
+	(114, 3, 1, 35, 20, '2021-03-17', '03:00:00', 'Activa'),
+	(439, 9, 1, 44, 44, '2021-03-10', '22:40:00', 'Activa'),
+	(442, 2, 8, 44, 11, '2021-03-02', '13:12:00', 'Activa'),
+	(443, 3, 1, 44, 30, '2021-03-23', '13:27:00', 'Activa'),
+	(498, 7, 15, 11, 11, '2021-03-10', '13:57:00', 'Completada'),
+	(499, 8, 15, 20, 20, '2021-03-31', '13:58:00', 'Activa');
 /*!40000 ALTER TABLE `reserva` ENABLE KEYS */;
 
 -- Volcando estructura para tabla cinemax.usuario
@@ -124,20 +128,19 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `CLAVE_USUARIO` varchar(20) NOT NULL,
   `TIPO_USUARIO` enum('Cliente','Administrador') NOT NULL,
   PRIMARY KEY (`ID_USUARIO`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 
 -- Volcando datos para la tabla cinemax.usuario: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` (`ID_USUARIO`, `NOMBRE_USUARIO`, `CLAVE_USUARIO`, `TIPO_USUARIO`) VALUES
-	(1, 'dscv3719@gmail.com', '1234', 'Cliente'),
-	(2, 'fdcombita@misena.edu.co', 'fabi123', 'Cliente'),
-	(3, 'manino645@misena.edu.co', 'aleja123', 'Cliente'),
-	(4, 'fdcombita24@misena.edu.co', '123456', 'Cliente'),
-	(5, 'dscarrillo37@misena.edu.co', '1234', 'Cliente'),
-	(6, 'dscarrillo37@misena.edu.co', '1234', 'Cliente');
+	(1, 'dscv3719@gmail.com', '1234', 'Administrador'),
+	(8, 'fdcombita24@misena.edu.co', '123456789', 'Cliente'),
+	(12, 'japs@gmail.com', '123456', 'Cliente'),
+	(13, 'aleja14@gmail.com', '123456', 'Cliente'),
+	(14, 'sergioayala@gmail.com', '123456', 'Cliente'),
+	(15, 'jairopoveda@gmail.com', '123456', 'Administrador');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
