@@ -3,6 +3,16 @@
     $data = file_get_contents("php://input");
     include("../controller/databasePDO.php");
 
+    session_start();
+
+    $sesion = $_SESSION['datos'];
+
+    if($sesion == null || $sesion = ''){
+        echo 'Usted no tiene autorización';
+        header("location: ../views/login.php");
+        die();
+    }
+
     $id= $_POST['id_user'];
     $user1= $_POST['user'];
     $pass1 = $_POST['pass'];

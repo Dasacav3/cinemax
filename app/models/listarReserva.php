@@ -12,7 +12,17 @@
 <?php
     $data = file_get_contents("php://input");
     include("../controller/databasePDO.php");
-    $data = file_get_contents("php://input");
+
+    session_start();
+
+    $sesion = $_SESSION['datos'];
+
+    if($sesion == null || $sesion = ''){
+        echo 'Usted no tiene autorización';
+        header("location: ../views/login.php");
+        die();
+    }
+
     $consulta = $pdo->prepare("SELECT * FROM reserva ORDER BY id_reserva DESC");
     $consulta->execute();
     if($data != ""){

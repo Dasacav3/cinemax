@@ -10,9 +10,35 @@
     <link rel="stylesheet" href="./dist/css/main.css">
     <link rel="stylesheet" href="./dist/css/movie_cards.css">
     <script src="https://kit.fontawesome.com/ef5bd2f060.js" crossorigin="anonymous"></script>
+    <script src="../../lib/sweetaler2/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="../../lib/sweetaler2/sweetalert2.all.min.css">
     <title>Cinemax - Inicio</title>
 </head>
+<?php
+session_start();
 
+$sesion = $_SESSION['datos'];
+
+
+if ($sesion == null || $sesion = '') {
+?>
+    <script>
+        Swal.fire({
+            icon: "error",
+            title: "El acceso esta prohibido",
+            showConfirmButton: false,
+            timer: 1500,
+        }).then(
+                function() {
+                    window.location = '../views/login.php';
+                }
+            );
+    </script>
+<?php
+    die();
+}
+
+?>
 <body>
     <header class="main-header">
         <div class="main-header-content">
@@ -24,7 +50,7 @@
             <nav class="main-nav-bar">
                 <a href="./reserva.php"><i class="fas fa-bookmark"></i> Reservaciones</a>
                 <a href="./usuario.php"><i class="fas fa-user"></i> Usuarios</a>
-                <a href="./login.php"> <i class="fas fa-power-off"></i> Cerrar sesión</a>
+                <a href="./logout.php"> <i class="fas fa-power-off"></i> Cerrar sesión</a>
             </nav>
         </div>
     </header>
