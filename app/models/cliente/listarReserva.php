@@ -35,7 +35,9 @@
     FROM reserva INNER JOIN cliente ON reserva.ID_CLIENTE = cliente.ID_CLIENTE WHERE cliente.ID_CLIENTE = '$id'");
     $consulta->execute();
     if($data != ""){
-        $consulta = $pdo->prepare("SELECT * FROM reserva WHERE id_reserva LIKE '%".$data."%' OR id_pelicula LIKE '%".$data."%' OR id_cliente LIKE '%".$data."%' OR numero_sala LIKE '%".$data."%' OR codigo_asiento LIKE '%".$data."%' OR fecha_reservacion LIKE '%".$data."%' OR hora_reservacion LIKE '%".$data."%' OR estado_reservacion LIKE '%".$data."%'");
+        $consulta = $pdo->prepare("SELECT reserva.ID_RESERVA, reserva.ID_PELICULA, reserva.NUMERO_SALA, 
+        reserva.CODIGO_ASIENTO, reserva.FECHA_RESERVACION, reserva.HORA_RESERVACION, reserva.ESTADO_RESERVACION 
+        FROM reserva INNER JOIN cliente ON reserva.ID_CLIENTE = cliente.ID_CLIENTE WHERE cliente.ID_CLIENTE = '$id' AND (reserva.ID_RESERVA LIKE '%".$data."%' OR reserva.ID_PELICULA LIKE '%".$data."%' OR reserva.NUMERO_SALA LIKE '%".$data."%' OR reserva.CODIGO_ASIENTO LIKE '%".$data."%' OR reserva.FECHA_RESERVACION LIKE '%".$data."%' OR reserva.HORA_RESERVACION LIKE '%".$data."%' OR reserva.ESTADO_RESERVACION LIKE '%".$data."%')");
         $consulta->execute();
     }
     $resultado = $consulta->fetchAll(PDO::FETCH_ASSOC);
