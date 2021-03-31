@@ -11,7 +11,7 @@
 
 <?php
     $data = file_get_contents("php://input");
-    include("../controller/databasePDO.php");
+    include("../../controller/databasePDO.php");
 
     session_start();
 
@@ -19,7 +19,7 @@
 
     if($sesion == null || $sesion = ''){
         echo 'Usted no tiene autorización';
-        header("location: ../views/login.php");
+        header("location: ../../views/login.php");
         die();
     }
 

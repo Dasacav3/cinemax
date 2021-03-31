@@ -6,47 +6,9 @@ const fecha = document.getElementById("fecha");
 const hora = document.getElementById("hora");
 
 
-formReserva.addEventListener("submit", (e) =>{
-    e.preventDefault();
-
-	if(pelicula.value == "" || sala.value == "" || asiento.value == "" || fecha.value == "" || hora.value == ""){
-		Swal.fire({
-			icon: "error",
-			title: "Rellena todos los campos",
-			showConfirmButton: false,
-			timer: 1500,
-		});
-	}else{
-		registrar.addEventListener("click", () => {
-			fetch("../models/añadirReserva.php", {
-				method: "POST",
-				body: new FormData(form_register),
-			})
-				.then((response) => response.text())
-				.then((response) => {
-					console.log(response);
-					if (response == "ok") {
-						Swal.fire({
-							icon: "success",
-							title: "Registrado",
-							showConfirmButton: false,
-							timer: 1500,
-						});
-						form_register.reset();
-						listarReservas();
-					}
-				});
-		});
-	}
-
-})
-
-
-
-
 listarReservas();
 function listarReservas(busqueda) {
-	fetch("../models/listarReserva.php", {
+	fetch("../../models/admin/listarReserva.php", {
 		method: "POST",
 		body: busqueda
 	})
@@ -89,7 +51,7 @@ function eliminarReserva(id) {
 		cancelButtonText: "NO",
 	}).then((result) => {
 		if (result.isConfirmed) {
-			fetch("../models/eliminarReserva.php", {
+			fetch("../../models/admin/eliminarReserva.php", {
 				method: "POST",
 				body: id,
 			})
@@ -108,7 +70,7 @@ function eliminarReserva(id) {
 }
 
 function Editar(id) {
-	fetch("../models/actualizarReserva.php", {
+	fetch("../../models/admin/actualizarReserva.php", {
 		method: "POST",
 		body: id,
 	})
@@ -126,7 +88,7 @@ function Editar(id) {
 
 
 modificar.addEventListener("click", () => {
-	fetch("../models/editarReserva.php", {
+	fetch("../../models/admin/editarReserva.php", {
 		method: "POST",
 		body: new FormData(form_edit),
 	})
@@ -157,28 +119,17 @@ search_input.addEventListener("keyup", () =>{
 
 
 // Modals reservaciones
-var pop_up_add = document.getElementById("pop_up_add");
-var pop_up_wrap_add = document.getElementById("form_register");
+
 
 var pop_up_edit = document.getElementById("pop_up_edit");
 var pop_up_wrap_edit = document.getElementById("form_edit");
-
-var abrir_add = document.getElementById('abrirPopup-add');
 var abrir_edit = document.getElementsByClassName('abrirPopup-edit');
 
-function showPopup_add() {
-	pop_up_add.classList.add("show");
-	pop_up_wrap_add.classList.add("show");
-}
 
 function showPopup_edit() {
 	pop_up_edit.classList.add("show");
 	pop_up_wrap_edit.classList.add("show");
 }
-
-abrir_add.addEventListener("click", () => {
-	showPopup_add();
-});
 
 
 function abrir(){
@@ -189,14 +140,10 @@ function abrir(){
 	}
 }
 
-var cerrar_add = document.getElementById("closePopup-add");
+
 var cerrar_edit = document.getElementById("closePopup-edit");
 
 
-cerrar_add.addEventListener('click', () =>{
-	pop_up_add.classList.remove("show");
-	pop_up_wrap_add.classList.remove("show");
-})
 
 cerrar_edit.addEventListener('click', () =>{
 	pop_up_edit.classList.remove("show");

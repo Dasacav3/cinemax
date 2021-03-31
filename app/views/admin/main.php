@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./dist/img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="./dist/css/normalize.css">
-    <link rel="stylesheet" href="./dist/css/main.css">
-    <link rel="stylesheet" href="./dist/css/movie_cards.css">
+    <link rel="shortcut icon" href="../dist/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../dist/css/normalize.css">
+    <link rel="stylesheet" href="../dist/css/main.css">
+    <link rel="stylesheet" href="../dist/css/movie_cards.css">
     <script src="https://kit.fontawesome.com/ef5bd2f060.js" crossorigin="anonymous"></script>
-    <script src="../../lib/sweetaler2/sweetalert2.all.min.js"></script>
+    <script src="../../../lib/sweetaler2/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="../../lib/sweetaler2/sweetalert2.all.min.css">
     <title>Cinemax - Inicio</title>
 </head>
@@ -20,37 +20,34 @@ session_start();
 $sesion = $_SESSION['datos'];
 
 
-if ($sesion == null || $sesion = '') {
+if ($sesion == null || $sesion = '' || $sesion[1] == 'Cliente') {
 ?>
     <script>
-        Swal.fire({
-            icon: "error",
-            title: "El acceso esta prohibido",
-            showConfirmButton: false,
-            timer: 1500,
-        }).then(
-                function() {
-                    window.location = '../views/login.php';
-                }
-            );
+        function Regresar() {
+            alert('El acceso esta prohibido');
+            window.history.go(-1);
+        }
+        Regresar();
     </script>
 <?php
     die();
 }
 
 ?>
+
 <body>
     <header class="main-header">
         <div class="main-header-content">
             <div class="icon">
                 <a href="main.php">
-                    <img src="./dist/img/cinemax.png" alt="">
+                    <img src="../dist/img/cinemax.png" alt="">
                 </a>
             </div>
             <nav class="main-nav-bar">
                 <a href="./reserva.php"><i class="fas fa-bookmark"></i> Reservaciones</a>
-                <a href="./usuario.php"><i class="fas fa-user"></i> Usuarios</a>
-                <a href="./logout.php"> <i class="fas fa-power-off"></i> Cerrar sesión</a>
+                <a href="./usuario.php"><i class="fas fa-id-card"></i> Usuarios</a>
+                <a href="../logout.php"> <i class="fas fa-power-off"></i> Cerrar sesión</a>
+                <a href="#"> <i class="fab fa-gg-circle"></i> <?php echo $_SESSION['datos'][2]; ?></a>
             </nav>
         </div>
     </header>

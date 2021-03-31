@@ -1,6 +1,6 @@
 listarUsers();
 function listarUsers(busqueda) {
-	fetch("../models/listarUser.php", {
+	fetch("../../models/admin/listarUser.php", {
 		method: "POST",
 		body: busqueda
 	})
@@ -21,7 +21,7 @@ function eliminarUser(id) {
 		cancelButtonText: "NO",
 	}).then((result) => {
 		if (result.isConfirmed) {
-			fetch("../models/eliminarUser.php", {
+			fetch("../../models/admin/eliminarUser.php", {
 				method: "POST",
 				body: id,
 			})
@@ -52,7 +52,7 @@ function eliminarUser(id) {
 }
 
 function Editar(id) {
-	fetch("../models/actualizarUser.php", {
+	fetch("../../models/admin/actualizarUser.php", {
 		method: "POST",
 		body: id,
 	})
@@ -67,7 +67,7 @@ function Editar(id) {
 
 
 modificar.addEventListener("click", () => {
-	fetch("../models/editarUser.php", {
+	fetch("../../models/admin/editarUser.php", {
 		method: "POST",
 		body: new FormData(form_edit)
 	})

@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_POST)){
-    include("../controller/databasePDO.php");
+    include("../../controller/databasePDO.php");
 
     session_start();
 
@@ -13,7 +13,7 @@ if(isset($_POST)){
 
     if($sesion == null || $sesion = ''){
         echo 'Usted no tiene autorización';
-        header("location: ../views/login.php");
+        header("location: ../../views/login.php");
         die();
     }
 

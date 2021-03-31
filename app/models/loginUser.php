@@ -8,22 +8,24 @@
     <title>Document</title>
     <script src="../../lib/sweetaler2/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="../../lib/sweetaler2/sweetalert2.all.min.css">
-  <style>
-    @import url("../views/dist/css/colors_fonts.css");
+    <style>
+        @import url("../views/dist/css/colors_fonts.css");
 
-    body{
-        background: var(--gray-dark);
-    }
+        body {
+            background: var(--gray-dark);
+        }
 
-    * {
-      font-family: "Poppins", sans-serif;
-    }
-  </style>
+        * {
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
 </head>
 
 <body>
 
     <?php
+
+    session_start();
 
     include("../controller/database.php");
 
@@ -31,35 +33,47 @@
     $password = $_POST['password'];
     $tipo = $_POST['tipo_usuario'];
 
-    $consulta = mysqli_query($conn, "SELECT id_cliente FROM cliente WHERE email_cliente = '$nombre'");
+    $consulta = mysqli_query($conn, "SELECT id_usuario,tipo_usuario,nombre_usuario FROM usuario WHERE nombre_usuario = '$nombre'");
 
-    $id = mysqli_fetch_assoc($consulta);
+    $data = mysqli_fetch_array($consulta);
 
-    session_start();
+    $_SESSION['datos'] = $data;
 
-    $_SESSION['datos'] = $id;
+    echo $data[1];
 
     $registros = mysqli_query($conn, "SELECT * FROM usuario WHERE nombre_usuario = '$nombre' AND clave_usuario = '$password' AND tipo_usuario = '$tipo'");
     if ($reg = mysqli_fetch_array($registros)) {
-    ?>
-        <script>
+        if ($data[1] == 'Administrador') {
+            echo "<script>
             Swal.fire({
                 title: 'Ingreso exitoso',
                 icon: 'success',
                 showConfirmButton: false,
-                timer: 2000
+                timer: 1500
             }).then(
                 function() {
-                    window.location = '../views/main.php';
-                }
+                    window.location = 'http://localhost/cinemax/app/views/admin/main.php';
+                }         
             );
-        </script>
-    <?php
-    } else {
-    ?>
-        <script>
+            </script>";
+        } else{
+            echo "<script>
             Swal.fire({
-                title: 'Vuelve a intentarlo',
+                title: 'Ingreso exitoso',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1500
+            }).then(
+                function() {
+                    window.location = 'http://localhost/cinemax/app/views/cliente/main.php';
+                }         
+            );
+            </script>";
+        }
+    } else {
+        echo "<script>
+            Swal.fire({
+                title: 'Vuelve a intertarlo',
                 text: 'Usuario o contraseña incorrectos',
                 icon: 'error',
                 showConfirmButton: false,
@@ -69,8 +83,7 @@
                     window.history.go(-1);
                 }
             );
-        </script>
-    <?php
+            </script>";
     }
     ?>
 

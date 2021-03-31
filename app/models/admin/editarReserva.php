@@ -2,7 +2,7 @@
 
     $data = file_get_contents("php://input");
 
-    include("../controller/databasePDO.php");
+    include("../../controller/databasePDO.php");
 
     session_start();
 
@@ -10,20 +10,13 @@
 
     if($sesion == null || $sesion = ''){
         echo 'Usted no tiene autorización';
-        header("location: ../views/login.php");
+        header("location: ../../views/login.php");
         die();
     }
     
-    // require "../controller/databasePDO.php";
-    // $query = $pdo->prepare("SELECT id_reserva,id_pelicula,numero_sala,codigo_asiento,fecha_reservacion,hora_reservacion FROM reserva WHERE id_reserva = :id");
-    // $query->bindParam(":id",$data); 
-    // $query->execute();
-    // $resultado = $query->fetch(PDO::FETCH_ASSOC);
-    // echo json_encode($resultado);
 
     $reserva = $_POST['reserva1'];
     $pelicula = $_POST['pelicula1'];
-    // $edad = $_POST['edad'];
     $sala = $_POST['sala1'];
     $asiento = $_POST['asiento1'];
     $fecha = $_POST['fecha1'];
