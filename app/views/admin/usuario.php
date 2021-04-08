@@ -57,13 +57,10 @@ if ($sesion == null || $sesion = '' || $sesion[1] == 'Cliente') {
             <div class="header-tools">
                 <div class="tools">
                     <ul>
-                        <li>
-                            <span><input type="checkbox" name="" id="" /></span>
-                        </li>
                     </ul>
                 </div>
                 <div class="search">
-                    <input type="text" class="search-input" id="search_input" />
+                    <input type="text" class="search-input" id="search_input" placeholder="Busqueda"/>
                 </div>
             </div>
             <table class="datatable">

@@ -46,9 +46,6 @@
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione debitis iusto ipsum eaque, consequatur maxime? Laudantium eum repellat similique fugit, provident obcaecati consectetur in incidunt, libero mollitia ad doloribus reiciendis?
                 </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione debitis iusto ipsum eaque, consequatur maxime? Laudantium eum repellat similique fugit, provident obcaecati consectetur in incidunt, libero mollitia ad doloribus reiciendis?
-                </p>
                 <div class="nosotros-item | nosotros-item__img">
                     <img src="./app/views/dist/img/online.png" alt="" />
                 </div>

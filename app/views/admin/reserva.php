@@ -91,16 +91,16 @@ if ($sesion == null || $sesion = '' || $sesion[1] == 'Cliente') {
             <div class="header-tools">
                 <div class="tools">
                     <ul>
-                        <li>
+                        <!-- <li>
                             <span><input type="checkbox" name="" id="" /></span>
-                        </li>
+                        </li> -->
                         <!-- <li>
                             <button id="abrirPopup-add" class="add"><i class="fas fa-plus-circle"></i></button>
                         </li> -->
                     </ul>
                 </div>
                 <div class="search">
-                    <input type="text" class="search-input" id="search_input" />
+                    <input type="text" class="search-input" id="search_input" placeholder="Busqueda" />
                 </div>
             </div>
             <table class="datatable">
@@ -172,7 +172,7 @@ if ($sesion == null || $sesion = '' || $sesion[1] == 'Cliente') {
             <label for="">Asiento</label> <br>
             <input type="text" name="asiento1" id="asiento1"> <br>
             <label for="">Fecha</label> <br>
-            <input type="date" name="fecha1" id="fecha1"> <br>
+            <input type="date" min="<?php echo date("Y-m-d");?>" name="fecha1" id="fecha1"> <br>
             <label for="">Hora</label> <br>
             <input type="time" name="hora1" id="hora1"> <br>
             <label for="">Estado</label> <br>

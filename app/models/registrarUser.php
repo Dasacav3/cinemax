@@ -12,8 +12,8 @@
   <style>
     @import url("../views/dist/css/colors_fonts.css");
 
-    body{
-        background: var(--gray-dark);
+    body {
+      background: var(--gray-dark);
     }
 
     * {
@@ -33,7 +33,24 @@
 
   $resultado1 = $conn->query($query);
 
-  if (!$resultado1) die("Falla al acceder a la BD (USUARIO)");
+  if (!$resultado1) {
+  ?>
+    <script>
+      Swal.fire({
+        title: 'Vuelve a intertarlo',
+        text: 'Usuario no registrado',
+        icon: 'error',
+        showConfirmButton: false,
+        timer: 2000
+      }).then(
+        function() {
+          window.history.go(-1);
+        }
+      );
+    </script>
+  <?php
+    die("Query Failed " . mysqli_error($conn));
+  }
 
   $consulta_id_usuario = "SELECT id_usuario as id_usuario FROM usuario WHERE nombre_usuario='$_POST[correo]'";
   $resultado2 = mysqli_query($conn, $consulta_id_usuario);
@@ -45,7 +62,24 @@
 
   $resultado3 = $conn->query($query2);
 
-  if (!$resultado3) die("Falla al acceder a la BD (CLIENTE)");
+  if (!$resultado3) {
+  ?>
+    <script>
+      Swal.fire({
+        title: 'Vuelve a intertarlo',
+        text: 'Usuario no registrado',
+        icon: 'error',
+        showConfirmButton: false,
+        timer: 2000
+      }).then(
+        function() {
+          window.history.go(-1);
+        }
+      );
+    </script>
+  <?php
+    die("Query Failed " . mysqli_error($conn));
+  }
 
   ?>
 

@@ -144,6 +144,7 @@
 .datatable-container .datatable th,
 .datatable-container .datatable td {
 	padding: var(--dt-padding) var(--dt-padding);
+	text-align: center;
 }
 
 .datatable-container .datatable th {
@@ -218,9 +219,9 @@
 }
 
 .btn-edit{
-	background: var(--deep-taupe);
+	background: var(--emerald);
 }
 
 .btn-delete{
-	background: var(--red-dark);
+	background: var(--popstar);
 }

@@ -1,44 +1,14 @@
-const formReserva = document.getElementById("form_register");
-const pelicula = document.getElementById("pelicula");
-const sala = document.getElementById("sala");
-const asiento = document.getElementById("asiento");
-const fecha = document.getElementById("fecha");
-const hora = document.getElementById("hora");
-
-
 listarReservas();
 function listarReservas(busqueda) {
 	fetch("../../models/admin/listarReserva.php", {
 		method: "POST",
-		body: busqueda
+		body: busqueda,
 	})
 		.then((response) => response.text())
 		.then((response) => {
 			reservas.innerHTML = response;
 		});
 }
-
-
-// registrar.addEventListener("click", () => {
-// 	fetch("../models/añadirReserva.php", {
-// 		method: "POST",
-// 		body: new FormData(form_register),
-// 	})
-// 		.then((response) => response.text())
-// 		.then((response) => {
-// 			console.log(response);
-// 			if (response == "ok") {
-// 				Swal.fire({
-// 					icon: "success",
-// 					title: "Registrado",
-// 					showConfirmButton: false,
-// 					timer: 1500,
-// 				});
-// 				form_register.reset();
-// 				listarReservas();
-// 			}
-// 		});
-// });
 
 function eliminarReserva(id) {
 	Swal.fire({
@@ -57,13 +27,23 @@ function eliminarReserva(id) {
 			})
 				.then((response) => response.text())
 				.then((response) => {
-					listarReservas();
-					Swal.fire({
-						icon: "success",
-						title: "Eliminado",
+					const Toast = Swal.mixin({
+						toast: true,
+						position: "top-end",
 						showConfirmButton: false,
-						timer: 1500,
+						timer: 3000,
+						timerProgressBar: true,
+						didOpen: (toast) => {
+							toast.addEventListener("mouseenter", Swal.stopTimer);
+							toast.addEventListener("mouseleave", Swal.resumeTimer);
+						},
 					});
+
+					Toast.fire({
+						icon: "success",
+						title: "Reservación eliminada",
+					});
+					listarReservas();
 				});
 		}
 	});
@@ -76,6 +56,7 @@ function Editar(id) {
 	})
 		.then((response) => response.json())
 		.then((response) => {
+			console.log(response);
 			reserva1.value = response.id_reserva;
 			pelicula1.value = response.id_pelicula;
 			sala1.value = response.numero_sala;
@@ -86,7 +67,6 @@ function Editar(id) {
 		});
 }
 
-
 modificar.addEventListener("click", () => {
 	fetch("../../models/admin/editarReserva.php", {
 		method: "POST",
@@ -95,44 +75,68 @@ modificar.addEventListener("click", () => {
 		.then((response) => response.text())
 		.then((response) => {
 			if (response == "ok") {
-				Swal.fire({
-					icon: "success",
-					title: "Modificación",
+				const Toast = Swal.mixin({
+					toast: true,
+					position: "top-end",
 					showConfirmButton: false,
-					timer: 1500,
+					timer: 3000,
+					timerProgressBar: true,
+					didOpen: (toast) => {
+						toast.addEventListener("mouseenter", Swal.stopTimer);
+						toast.addEventListener("mouseleave", Swal.resumeTimer);
+					},
+				});
+
+				Toast.fire({
+					icon: "success",
+					title: "Reserva modificada correctamente",
 				});
 				form_edit.reset();
+				pop_up_edit.classList.remove("show");
+				pop_up_wrap_edit.classList.remove("show");
 				listarReservas();
+			} else {
+				const Toast = Swal.mixin({
+					toast: true,
+					position: "top-end",
+					showConfirmButton: false,
+					timer: 3000,
+					timerProgressBar: true,
+					didOpen: (toast) => {
+						toast.addEventListener("mouseenter", Swal.stopTimer);
+						toast.addEventListener("mouseleave", Swal.resumeTimer);
+					},
+				});
+
+				Toast.fire({
+					icon: "error",
+					title: "La reserva no fue modificada",
+				});
 			}
 		});
 });
 
-search_input.addEventListener("keyup", () =>{
+search_input.addEventListener("keyup", () => {
 	const valor = search_input.value;
-	if(valor == ""){
+	if (valor == "") {
 		listarReservas();
-	}else{
-		listarReservas(valor)
+	} else {
+		listarReservas(valor);
 	}
 });
 
-
-
 // Modals reservaciones
-
 
 var pop_up_edit = document.getElementById("pop_up_edit");
 var pop_up_wrap_edit = document.getElementById("form_edit");
-var abrir_edit = document.getElementsByClassName('abrirPopup-edit');
-
+var abrir_edit = document.getElementsByClassName("abrirPopup-edit");
 
 function showPopup_edit() {
 	pop_up_edit.classList.add("show");
 	pop_up_wrap_edit.classList.add("show");
 }
 
-
-function abrir(){
+function abrir() {
 	for (var i = 0; i < abrir_edit.length; i++) {
 		abrir_edit[i].addEventListener("click", () => {
 			showPopup_edit();
@@ -140,12 +144,9 @@ function abrir(){
 	}
 }
 
-
 var cerrar_edit = document.getElementById("closePopup-edit");
 
-
-
-cerrar_edit.addEventListener('click', () =>{
+cerrar_edit.addEventListener("click", () => {
 	pop_up_edit.classList.remove("show");
 	pop_up_wrap_edit.classList.remove("show");
-})
+});
