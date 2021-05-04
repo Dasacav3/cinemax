@@ -13,7 +13,7 @@
     @import url("../views/dist/css/colors_fonts.css");
 
     body {
-      background: var(--gray-dark);
+      background: var(--popstar);
     }
 
     * {
@@ -28,6 +28,7 @@
   <?php
 
   include("../controller/database.php");
+  error_reporting(0);
 
   $query = "INSERT INTO usuario (nombre_usuario,clave_usuario,tipo_usuario) VALUES ('$_POST[correo]','$_POST[pass]','1')";
 

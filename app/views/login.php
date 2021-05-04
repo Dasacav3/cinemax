@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dist/css/normalize.css">
     <link rel="stylesheet" href="dist/css/main.css">
     <link rel="shortcut icon" href="dist/img/favicon.png" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/ef5bd2f060.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<?= constant('URL') ?>lib/fontawesome-5.15.2/css/all.min.css" />
+    <script src="<?= constant('URL') ?>lib/fontawesome-5.15.2/js/all.min.js"></script>
     <title>Iniciar sesión</title>
 </head>
 

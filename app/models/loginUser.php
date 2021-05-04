@@ -12,7 +12,7 @@
         @import url("../views/dist/css/colors_fonts.css");
 
         body {
-            background: var(--gray-dark);
+            background: var(--popstar);
         }
 
         * {
@@ -26,6 +26,7 @@
     <?php
 
     session_start();
+    error_reporting(0);
 
     include("../controller/database.php");
 
