@@ -2,8 +2,11 @@
 
 class View{
 
+    private $session;
+
     public function __construct(){
-        //echo "<p>Vista base</p>";
+        $this->mensaje = "";
+        $this->session = new Session();
     }
 
     public function render($nombre){
