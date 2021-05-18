@@ -3,51 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../dist/img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="../dist/css/normalize.css">
-    <link rel="stylesheet" href="../dist/css/datatable.css">
-    <link rel="stylesheet" href="../dist/css/main.css">
-    <script src="../../../lib/sweetaler2/sweetalert2.all.min.js"></script>
-    <link rel="stylesheet" href="../../../lib/sweetaler2/sweetalert2.min.css">
+    <link rel="shortcut icon" href="<?= constant('URL') ?>public/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="<?= constant('URL') ?>public/css/normalize.css">
+    <link rel="stylesheet" href="<?= constant('URL') ?>public/css/main.css">
+    <link rel="stylesheet" href="<?= constant('URL') ?>public/css/datatable.css">
     <script src="https://kit.fontawesome.com/ef5bd2f060.js" crossorigin="anonymous"></script>
-    <title>Reservaciones</title>
+    <script src="<?= constant('URL') ?>lib/sweetaler2/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="<?= constant('URL') ?>lib/sweetaler2/sweetalert2.all.min.css">
+    <title>Cinemax - Reservaciones</title>
 </head>
-<?php
-session_start();
-
-$sesion = $_SESSION['datos'];
-
-
-if ($sesion == null || $sesion = '' || $sesion[1] == 'Cliente') {
-?>
-    <script>
-        function Regresar() {
-            alert('El acceso esta prohibido');
-            window.history.go(-1);
-        }
-        Regresar();
-    </script>
-<?php
-    die();
-}
-
-?>
 
 <body>
     <header class="main-header">
         <div class="main-header-content">
             <div class="icon">
                 <a href="main.php">
-                    <img src="../dist/img/cinemax.png" alt="">
+                    <img src="<?= constant('URL') ?>public/img/cinemax.png" alt="">
                 </a>
             </div>
             <nav class="main-nav-bar">
-                <a href="./main.php"><i class="fas fa-film"></i> Inicio</a>
-                <a href="./usuario.php"><i class="fas fa-user"></i> Usuarios</a>
-                <a href="../logout.php"> <i class="fas fa-power-off"></i> Cerrar sesión</a>
-                <a href="#"> <i class="fab fa-gg-circle"> </i><?php echo $_SESSION['datos'][2]; ?></a>
+                <a href="<?= constant('URL') ?>admin"><i class="fas fa-home"></i> Inicio</a>
+                <a href="<?= constant('URL') ?>admin/reserva"><i class="fas fa-bookmark"></i> Reservaciones</a>
+                <a href="<?= constant('URL') ?>admin/usuario"><i class="fas fa-id-card"></i> Usuarios</a>
+                <a href="<?= constant('URL') ?>admin/logout"> <i class="fas fa-power-off"></i> Cerrar sesión</a>
+                <a href="#"> <i class="fab fa-gg-circle"></i> <?= $this->session->get('user')['NOMBRE_USUARIO'];?></a>
             </nav>
         </div>
     </header>
@@ -186,8 +166,8 @@ if ($sesion == null || $sesion = '' || $sesion[1] == 'Cliente') {
             <input type="reset" value="Limpiar"> <br>
         </form>
     </div>
-    <script src="../dist/js/reservas.js"></script>
-    <script src="../dist/js/modals-toggles.js"></script>
+    <script src="<?= constant('URL') ?>public/js/reservas.js"></script>
+    <script src="<?= constant('URL') ?>public/js/modals-toggles.js"></script>
 </body>
 
 </html>

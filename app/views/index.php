@@ -19,10 +19,10 @@
         </div>
         <nav>
             <ul>
-                <li><a href="<?= constant('URL') ?>app/views/index.php">Inicio</a></li>
-                <li><a href="#navNosotros">Nosotros</a></li>
-                <li><a href="#contactoNav">Contacto</a></li>
-                <li><a href="<?= constant('URL') ?>app/views/login.php">Iniciar sesión</a></li>
+                <li><a href="<?= constant('URL') ?>main"><i class="fas fa-home"></i> Inicio</a></li>
+                <li><a href="#navNosotros"><i class="fas fa-users"></i> Nosotros</a></li>
+                <li><a href="#contactoNav"><i class="fas fa-briefcase"></i> Contacto</a></li>
+                <li><a href="<?= constant('URL') ?>login"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</a></li>
             </ul>
         </nav>
     </header>
