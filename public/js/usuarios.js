@@ -1,6 +1,6 @@
 listarUsers();
 function listarUsers(busqueda) {
-	fetch("../../models/admin/listarUser.php", {
+	fetch("http://localhost/cinemax/usuarios/listarUsers", {
 		method: "POST",
 		body: busqueda
 	})
@@ -21,7 +21,7 @@ function eliminarUser(id) {
 		cancelButtonText: "NO",
 	}).then((result) => {
 		if (result.isConfirmed) {
-			fetch("../../models/admin/eliminarUser.php", {
+			fetch("http://localhost/cinemax/usuarios/deleteUser", {
 				method: "POST",
 				body: id,
 			})
@@ -52,7 +52,7 @@ function eliminarUser(id) {
 }
 
 function Editar(id) {
-	fetch("../../models/admin/actualizarUser.php", {
+	fetch("http://localhost/cinemax/usuarios/actualizarUser", {
 		method: "POST",
 		body: id,
 	})
@@ -67,7 +67,7 @@ function Editar(id) {
 
 
 modificar.addEventListener("click", () => {
-	fetch("../../models/admin/editarUser.php", {
+	fetch("http://localhost/cinemax/usuarios/editUser", {
 		method: "POST",
 		body: new FormData(form_edit)
 	})

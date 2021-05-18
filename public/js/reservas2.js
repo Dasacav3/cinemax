@@ -1,15 +1,8 @@
-// const formReserva = document.getElementById("form_register");
-// const pelicula = document.getElementById("pelicula");
-// const sala = document.getElementById("sala");
-// const asiento = document.getElementById("asiento");
-// const fecha = document.getElementById("fecha");
-// const hora = document.getElementById("hora");
-
 listarReservas();
 function listarReservas(busqueda) {
-	fetch("../../models/cliente/listarReserva.php", {
+	fetch("http://localhost/cinemax/reservas/listarReservas", {
 		method: "POST",
-		body: busqueda,
+		//body: busqueda,
 	})
 		.then((response) => response.text())
 		.then((response) => {
@@ -49,7 +42,7 @@ registrar.addEventListener("click", () => {
 			icon: "error",
 		});
 	} else {
-		fetch("../../models/cliente/añadirReserva.php", {
+		fetch("http://localhost/cinemax/reservas/añadirReserva", {
 			method: "POST",
 			body: new FormData(form_register),
 		})
@@ -101,7 +94,7 @@ registrar.addEventListener("click", () => {
 });
 
 function Editar(id) {
-	fetch("../../models/cliente/actualizarReserva.php", {
+	fetch("http://localhost/cinemax/reservas/actualizarReserva", {
 		method: "POST",
 		body: id,
 	})
@@ -148,7 +141,7 @@ modificar.addEventListener("click", () => {
 			icon: "error",
 		});
 	} else{
-		fetch("../../models/cliente/editarReserva.php", {
+		fetch("http://localhost/cinemax/reservas/editarReserva", {
 			method: "POST",
 			body: new FormData(form_edit),
 		})

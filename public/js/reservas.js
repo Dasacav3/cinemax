@@ -1,8 +1,8 @@
 listarReservas();
 function listarReservas(busqueda) {
-	fetch("../../models/admin/listarReserva.php", {
+	fetch("http://localhost/cinemax/reservas/listarReservas", {
 		method: "POST",
-		body: busqueda,
+		//body: busqueda,
 	})
 		.then((response) => response.text())
 		.then((response) => {
@@ -21,12 +21,13 @@ function eliminarReserva(id) {
 		cancelButtonText: "NO",
 	}).then((result) => {
 		if (result.isConfirmed) {
-			fetch("../../models/admin/eliminarReserva.php", {
+			fetch("http://localhost/cinemax/reservas/eliminarReserva", {
 				method: "POST",
 				body: id,
 			})
 				.then((response) => response.text())
 				.then((response) => {
+					console.log(response);
 					const Toast = Swal.mixin({
 						toast: true,
 						position: "top-end",
@@ -50,7 +51,7 @@ function eliminarReserva(id) {
 }
 
 function Editar(id) {
-	fetch("../../models/admin/actualizarReserva.php", {
+	fetch("http://localhost/cinemax/reservas/actualizarReserva2", {
 		method: "POST",
 		body: id,
 	})
@@ -68,7 +69,7 @@ function Editar(id) {
 }
 
 modificar.addEventListener("click", () => {
-	fetch("../../models/admin/editarReserva.php", {
+	fetch("http://localhost/cinemax/reservas/editarReserva2", {
 		method: "POST",
 		body: new FormData(form_edit),
 	})
