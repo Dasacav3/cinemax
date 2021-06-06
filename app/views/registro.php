@@ -40,7 +40,7 @@
         </div>
     </div>
     <script src="<?= constant('URL') ?>public/js/regularExpression.js"></script>
-    <script src="<?= constant('URL') ?>public/js/formValidation.js"></script>
+    <script src="<?= constant('URL') ?>public/js/formValidation.js" type="module"></script>
 </body>
 
 </html>

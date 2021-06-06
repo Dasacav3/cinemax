@@ -38,7 +38,7 @@
             </div>
         </div>
     </div>
-    <script src="<?= constant('URL') ?>public/js/loginUser.js"></script>
+    <script src="<?= constant('URL') ?>public/js/loginUser.js" type="module"></script>
 </body>
 
 </html>
