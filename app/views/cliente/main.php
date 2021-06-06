@@ -26,127 +26,21 @@
                 <a href="<?= constant('URL') ?>cliente"><i class="fas fa-home"></i> Inicio</a>
                 <a href="<?= constant('URL') ?>cliente/reserva"><i class="fas fa-bookmark"></i> Reservaciones</a>
                 <a href="<?= constant('URL') ?>cliente/logout"> <i class="fas fa-power-off"></i> Cerrar sesión</a>
-                <a href="#"> <i class="fab fa-gg-circle"></i> <?= $this->session->get('user')['NOMBRE_USUARIO'];?></a>
+                <a href="#"> <i class="fab fa-gg-circle"></i> <?= $this->session->get('user')['NOMBRE_USUARIO']; ?></a>
             </nav>
         </div>
     </header>
     <div class="main-title">
-        <h1>Peliculas destacadas</h1>
+        <h1>Listado de peliculas</h1>
     </div>
     <main class="main-content">
         <section>
-            <div class="container">
-                <div class="card card-1">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <div class="content">
-                        <h2>01</h2>
-                    </div>
-                </div>
-                <div class="card card-2">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <div class="content">
-                        <h2>02</h2>
-                    </div>
-                </div>
-                <div class="card card-3">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <div class="content">
-                        <h2>03</h2>
-                    </div>
-                </div>
-                <div class="card card-4">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <div class="content">
-                        <h2>04</h2>
-                    </div>
-                </div>
-                <div class="card card-5">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <div class="content">
-                        <h2>05</h2>
-                    </div>
-                </div>
-                <div class="card card-6">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <div class="content">
-                        <h2>06</h2>
-                    </div>
-                </div>
-                <div class="card card-7">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <div class="content">
-                        <h2>07</h2>
-                    </div>
-                </div>
-                <div class="card card-8">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <div class="content">
-                        <h2>08</h2>
-                    </div>
-                </div>
-                <div class="card card-9">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <div class="content">
-                        <h2>09</h2>
-                    </div>
-                </div>
-                <div class="card card-10">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <div class="content">
-                        <h2>10</h2>
-                    </div>
-                </div>
-                <div class="card card-11">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <div class="content">
-                        <h2>11</h2>
-                    </div>
-                </div>
-                <div class="card card-12">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <div class="content">
-                        <h2>12</h2>
-                    </div>
-                </div>
+            <div class="container" id="movies">
+
             </div>
         </section>
     </main>
+    <script src="<?= constant('URL') ?>public/js/pelicula2.js" type="module"></script>
 </body>
 
 </html>

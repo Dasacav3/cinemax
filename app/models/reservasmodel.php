@@ -7,29 +7,51 @@ class ReservasModel extends Model
         parent::__construct();
     }
 
-    public function get()
+    public function get($data)
     {
         $id = $this->session->get('user')['ID_CLIENTE'];
         $user = $this->session->get('user')['TIPO_USUARIO'];
 
-        if ($user == 'Administrador') {
-            try {
-                $query = $this->db->connect()->prepare("SELECT * FROM reserva ORDER BY id_reserva DESC");
-                $query->execute();
-                $data = $query->fetchAll(PDO::FETCH_ASSOC);
-            } catch (Exception $e) {
-                return false;
+        if (!empty($data)) {
+            if ($user == 'Administrador') {
+                try {
+                    $query = $this->db->connect()->prepare("SELECT * FROM reserva WHERE id_reserva LIKE '%$data%' OR fecha_reservacion '%$data%'");
+                    $query->execute();
+                    $data = $query->fetchAll(PDO::FETCH_ASSOC);
+                } catch (Exception $e) {
+                    return false;
+                }
+                return $data;
+            } else if ($user == 'Cliente') {
+                try {
+                    $query = $this->db->connect()->prepare("SELECT * FROM reserva WHERE id_cliente = :id AND id_reserva LIKE '%$data%' OR fecha_reservacion '%$data%'");
+                    $query->execute(["id" => $id]);
+                    $data = $query->fetchAll(PDO::FETCH_ASSOC);
+                } catch (Exception $e) {
+                    return false;
+                }
+                return $data;
             }
-            return $data;
-        } else if ($user == 'Cliente') {
-            try {
-                $query = $this->db->connect()->prepare("SELECT * FROM reserva WHERE id_cliente = :id ORDER BY id_reserva DESC");
-                $query->execute(["id" => $id]);
-                $data = $query->fetchAll(PDO::FETCH_ASSOC);
-            } catch (Exception $e) {
-                return false;
-            }
-            return $data;
+        }else{
+            if ($user == 'Administrador') {
+                try {
+                    $query = $this->db->connect()->prepare("SELECT * FROM reserva ORDER BY id_reserva DESC");
+                    $query->execute();
+                    $data = $query->fetchAll(PDO::FETCH_ASSOC);
+                } catch (Exception $e) {
+                    return false;
+                }
+                return $data;
+            } else if ($user == 'Cliente') {
+                try {
+                    $query = $this->db->connect()->prepare("SELECT * FROM reserva WHERE id_cliente = :id ORDER BY id_reserva DESC");
+                    $query->execute(["id" => $id]);
+                    $data = $query->fetchAll(PDO::FETCH_ASSOC);
+                } catch (Exception $e) {
+                    return false;
+                }
+                return $data;
+            } 
         }
     }
 
@@ -47,22 +69,18 @@ class ReservasModel extends Model
         return true;
     }
 
-    public function listar($id)
+    public function cancel($id)
     {
         try {
-            $query = $this->db->connect()->prepare("SELECT id_reserva,id_pelicula,numero_sala,codigo_asiento,fecha_reservacion,hora_reservacion FROM reserva WHERE id_reserva = :id");
+            $query = $this->db->connect()->prepare("UPDATE reserva SET estado_reservacion = 'Cancelada'  WHERE id_reserva = :id");
             $query->execute(['id' => $id]);
-            $data = $query->fetch(PDO::FETCH_ASSOC);
         } catch (Exception $e) {
             return false;
         }
-
-        $json = json_encode($data);
-
-        return $json;
+        return true;
     }
 
-    public function listar2($id)
+    public function listar($id)
     {
         try {
             $query = $this->db->connect()->prepare("SELECT id_reserva,id_pelicula,numero_sala,codigo_asiento,fecha_reservacion,hora_reservacion,estado_reservacion FROM reserva WHERE id_reserva = :id");
