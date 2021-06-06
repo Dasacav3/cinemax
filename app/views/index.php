@@ -87,7 +87,7 @@
                 <input type="submit" value="Enviar" />
             </form>
             <div class="contacto__img">
-                <img src="https://images.pexels.com/photos/3379942/pexels-photo-3379942.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+                <img loading="lazy" src="https://images.pexels.com/photos/3379942/pexels-photo-3379942.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
             </div>
         </div>
     </section>
