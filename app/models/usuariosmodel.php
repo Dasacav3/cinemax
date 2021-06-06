@@ -8,19 +8,35 @@ class UsuariosModel extends Model
         parent::__construct();
     }
 
-    public function get()
+    public function get($data)
     {
-        try {
-            $query = $this->db->connect()->prepare("SELECT * FROM usuario ORDER BY id_usuario DESC");
-            $query->execute();
-            $data = $query->fetchAll(PDO::FETCH_ASSOC);
-            if (count($data) > 1) {
-                return $data;
-            } else {
+
+        if (!empty($data)) {
+            try {
+                $query = $this->db->connect()->prepare("SELECT * FROM usuario WHERE id_usuario LIKE '%$data%' OR nombre_usuario LIKE '%$data%' OR tipo_usuario LIKE '%$data%'");
+                $query->execute();
+                $data = $query->fetchAll(PDO::FETCH_ASSOC);
+                if (count($data) > 1) {
+                    return $data;
+                } else {
+                    return false;
+                }
+            } catch (Exception $e) {
                 return false;
             }
-        } catch (Exception $e) {
-            return false;
+        } else {
+            try {
+                $query = $this->db->connect()->prepare("SELECT * FROM usuario ORDER BY id_usuario DESC");
+                $query->execute();
+                $data = $query->fetchAll(PDO::FETCH_ASSOC);
+                if (count($data) > 1) {
+                    return $data;
+                } else {
+                    return false;
+                }
+            } catch (Exception $e) {
+                return false;
+            }
         }
     }
 
@@ -53,12 +69,17 @@ class UsuariosModel extends Model
     public function delete($id)
     {
         try {
-            $query = $this->db->connect()->prepare("DELETE FROM cliente WHERE id_usuario = :id; DELETE FROM usuario WHERE id_usuario = :id");
+            $query = $this->db->connect()->prepare("DELETE FROM cliente WHERE id_usuario = :id");
             $query->execute(['id' => $id]);
         } catch (Exception $e) {
-            return false;
+            return $e;
         }
-
+        try {
+            $query = $this->db->connect()->prepare("DELETE FROM usuario WHERE id_usuario = :id");
+            $query->execute(['id' => $id]);
+        } catch (Exception $e) {
+            return $e;
+        }
         return true;
     }
 }

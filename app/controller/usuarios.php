@@ -10,7 +10,9 @@ class Usuarios extends Controller
 
     public function listarUsers()
     {
-        $resultado = $this->model->get();
+        $data = file_get_contents("php://input");
+
+        $resultado = $this->model->get($data);
 
         if (!empty($resultado)) {
             foreach ($resultado as $data) {
@@ -20,8 +22,8 @@ class Usuarios extends Controller
                         <td>" . $data['CLAVE_USUARIO'] . "</td>
                         <td>" . $data['TIPO_USUARIO'] . "</td>  
                         <td> 
-                            <button class='abrirPopup-edit btn-edit' type='button' onclick=Editar('" . $data['ID_USUARIO'] . "');abrir()>Editar</button>
-                            <button class='btn-delete' type='button' onclick=eliminarUser('" . $data['ID_USUARIO'] . "')>Eliminar</button> 
+                            <button class='abrirPopup-edit btn-edit' id='btnEdit-".$data['ID_USUARIO']."'>Editar</button>
+                            <button class='btn-delete' id='btnDelete-".$data['ID_USUARIO']."'>Eliminar</button> 
                         </td>
                     </tr>";
             }

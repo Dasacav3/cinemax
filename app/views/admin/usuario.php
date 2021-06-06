@@ -67,17 +67,6 @@
                     </select>
                     entradas
                 </div>
-                <div class="pages">
-                    <ul>
-                        <li><span class="active">1</span></li>
-                        <li><button>2</button></li>
-                        <li><button>3</button></li>
-                        <li><button>4</button></li>
-                        <li><button>...</button></li>
-                        <li><button>9</button></li>
-                        <li><button>10</button></li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
@@ -101,7 +90,7 @@
             <input type="reset" value="Limpiar"> <br>
         </form>
     </div>
-    <script src="<?= constant('URL') ?>public/js/usuarios.js"></script>
+    <script src="<?= constant('URL') ?>public/js/usuarios.js" type="module"></script>
     <script src="<?= constant('URL') ?>public/js/modals-toggles.js"></script>
 </body>
 
