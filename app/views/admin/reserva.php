@@ -31,40 +31,6 @@
             </nav>
         </div>
     </header>
-    <!-- <div class="form_container pop-up" id="pop_up_add">
-        <form id="form_register" class="pop-up-wrap" method="POST">
-            <a href="#" id="closePopup-add" class="closePopup"><i class="fas fa-times-circle"></i></a>
-            <h4>Registrar reserva</h4>
-            <label for="">Pelicula</label> <br>
-            <select name="pelicula" id="pelicula">
-                <option value=""></option>
-                <option value="1">Godzilla vs. Kong</option>
-                <option value="2">Tom y Jerry</option>
-                <option value="3">Los Croods 2</option>
-                <option value="4">Harry Potter y la Orden del Fénix</option>
-                <option value="5">Up : una aventura de altura</option>
-                <option value="6">Monster Hunter: la cacería comienza</option>
-                <option value="7">Resident Evil 5: la venganza</option>
-                <option value="8">Sonic la película</option>
-                <option value="9">Soul</option>
-                <option value="10">El increíble castillo vagabundo</option>
-                <option value="11">Avengers Endgame</option>
-                <option value="12">Misterio a bordo</option>
-            </select> <br>
-            <label for="">Sala</label> <br>
-            <input type="text" name="sala" id="sala"> <br>
-            <label for="">Asiento</label> <br>
-            <input type="text" name="asiento" id="asiento"> <br>
-            <label for="">Fecha</label> <br>
-            <input type="date" name="fecha" id="fecha"> <br>
-            <label for="">Hora</label> <br>
-            <input type="time" name="hora" id="hora"> <br>
-            <input type="submit" value="Registrar" id=registrar> <br>
-            <input type="reset" value="Limpiar" onclick=''> <br>
-            <hr>
-            <div class="warnings" id="alertas"></div> <br>
-        </form>
-    </div> -->
     <div class="main-content">
         <h1 class="title">Reservaciones</h1>
         <div class="datatable-container">
@@ -111,17 +77,6 @@
                     </select>
                     entradas
                 </div>
-                <div class="pages">
-                    <ul>
-                        <li><span class="active">1</span></li>
-                        <li><button>2</button></li>
-                        <li><button>3</button></li>
-                        <li><button>4</button></li>
-                        <li><button>...</button></li>
-                        <li><button>9</button></li>
-                        <li><button>10</button></li>
-                    </ul>
-                </div>
             </div>
         </div>
     </div>
@@ -166,7 +121,7 @@
             <input type="reset" value="Limpiar"> <br>
         </form>
     </div>
-    <script src="<?= constant('URL') ?>public/js/reservas.js"></script>
+    <script src="<?= constant('URL') ?>public/js/reservas.js" type="module"></script>
     <script src="<?= constant('URL') ?>public/js/modals-toggles.js"></script>
 </body>
 

@@ -12,8 +12,9 @@ class Reservas extends Controller
     }
 
     public function listarReservas()
-    {
-        $resultado = $this->model->get();
+    {  
+        $data = file_get_contents("php://input");
+        $resultado = $this->model->get($data);
         $session = $this->session->get('user')['TIPO_USUARIO'];
 
         if ($session == 'Administrador') {
@@ -28,8 +29,8 @@ class Reservas extends Controller
                     <td>" . $data['FECHA_RESERVACION'] . "</td>
                     <td>" . $data['HORA_RESERVACION'] . "</td>
                     <td>" . $data['ESTADO_RESERVACION'] . "</td> 
-                    <td><button class='abrirPopup-edit btn-edit' type='button' onclick=Editar('" . $data['ID_RESERVA'] . "');abrir()>Editar</button>
-                        <button class='btn-delete' type='button' onclick=eliminarReserva('" . $data['ID_RESERVA'] . "')>Eliminar</button>
+                    <td><button class='abrirPopup-edit btn-edit' type='button' id='btnDelete-".$data['ID_RESERVA']."'>Editar</button>
+                        <button class='btn-delete' type='button' id='btnEdit-".$data['ID_RESERVA']."'>Eliminar</button>
                     </td>   
                 </tr>";
                 }
@@ -44,10 +45,15 @@ class Reservas extends Controller
                     <td>" . $data['CODIGO_ASIENTO'] . "</td>
                     <td>" . $data['FECHA_RESERVACION'] . "</td>
                     <td>" . $data['HORA_RESERVACION'] . "</td>
-                    <td>" . $data['ESTADO_RESERVACION'] . "</td> 
-                    <td><button class='abrirPopup-edit btn-edit' type='button' onclick=Editar('" . $data['ID_RESERVA'] . "');abrir()>Editar</button>
+                    <td>" . $data['ESTADO_RESERVACION'] . "</td>
+                    <td>";
+                    if($data['ESTADO_RESERVACION'] == 'Activa'){
+                    echo "
+                        <button class='btn-delete' type='button' id='btnEdit-".$data['ID_RESERVA']."'>Cancelar</button>
                     </td>   
-                </tr>";
+                    </tr>";
+                    }
+                    
                 }
             }
         }
@@ -71,16 +77,16 @@ class Reservas extends Controller
         }
     }
 
-    public function actualizarReserva()
+    public function cancelarReserva()
     {
         $id = file_get_contents("php://input");
 
-        $resultado = $this->model->listar($id);
+        $resultado = $this->model->cancel($id);
 
-        if (empty($resultado)) {
-            echo "Hubo un problema";
+        if ($resultado) {
+            echo "ok";
         } else {
-            print_r($resultado);
+            echo "Hubo un problema";
         }
     }
 
@@ -88,7 +94,7 @@ class Reservas extends Controller
     {
         $id = file_get_contents("php://input");
 
-        $resultado = $this->model->listar2($id);
+        $resultado = $this->model->listar($id);
 
         if (empty($resultado)) {
             echo "Hubo un problema";
