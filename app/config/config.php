@@ -5,5 +5,5 @@
     define('HOST', 'localhost');
     define('DB', 'cinemax');
     define('USER', 'root');
-    define('PASSWORD', 'mysql');
+    define('PASSWORD', 'mariadb');
     define('CHARSET', 'utf8');
