@@ -26,53 +26,6 @@
     filter: drop-shadow(5px 5px 50px var(--red-dark));
 }
 
-.card-1{
-    background: url(../img/movies/godzilla-vs-kong.jpg);
-    background-size: cover;
-}
-.card-2{
-    background: url(../img/movies/tom_y_jerry.jpg);
-    background-size: cover;
-}
-.card-3{
-    background: url(../img/movies/los_croods_2.jpg);
-    background-size: cover;
-}
-.card-4{
-    background: url(../img/movies/harry_potter_fenix_order.jpg);
-    background-size: cover;
-}.card-5{
-    background: url(../img/movies/up-una-aventura-de-altura.jpeg);
-    background-size: cover;
-}.card-6{
-    background: url(../img/movies/monster_hunter.jpg);
-    background-size: cover;
-}
-.card-7{
-    background: url(../img/movies/resident_evil_v.jpg);
-    background-size: cover;
-}
-.card-8{
-    background: url(../img/movies/sonic_la_pelicula.jpg);
-    background-size: cover;
-}
-.card-9{
-    background: url(../img/movies/soul.jpg);
-    background-size: cover;
-}
-.card-10{
-    background: url(../img/movies/castillo_vagabundo.jpg);
-    background-size: cover;
-}
-.card-11{
-    background: url(../img/movies/avengers-endgame.jpeg);
-    background-size: cover;
-}
-.card-12{
-    background: url(../img/movies/murder_mystery.jpg);
-    background-size: cover;
-}
-
 .container:hover .card{
     opacity: 0.2;
 }
@@ -150,6 +103,18 @@
                 0 0 80px var(--popstar),
                 0 0 100px var(--popstar);
     animation: animate1 2s linear infinite;
+}
+
+.card-btn{
+    background: var(--gray-dark);
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--red-dark);
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
 }
 
 @keyframes animate1{
