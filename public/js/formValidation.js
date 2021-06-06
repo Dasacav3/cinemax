@@ -1,5 +1,7 @@
 // Registro
 
+import {URL} from "./constantes.js";
+
 const formulario = document.getElementById("form_register");
 const nombre = document.getElementById("nombres");
 const apellido = document.getElementById("apellidos");
@@ -56,7 +58,7 @@ formulario.addEventListener("submit", (e) => {
 		error.innerHTML = warnings;
 	} else {
 		error.innerHTML = "";
-		fetch("http://localhost/cinemax/registro/registrarCliente", {
+		fetch(`${URL}registro/registrarCliente`, {
 			body: new FormData(formulario),
 			method: "POST",
 		})
@@ -66,7 +68,7 @@ formulario.addEventListener("submit", (e) => {
 				mensaje.innerHTML = response;
 				if (response.trim() == "<p class='success'>Usuario registrado correctamente</p>") {
 					setTimeout(() => {
-						window.location.href = "http://localhost/cinemax/login";
+						window.location.href = `${URL}login`;
 					}, 2000);
 				}
 			});
