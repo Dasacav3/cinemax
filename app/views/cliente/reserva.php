@@ -18,15 +18,15 @@
     <header class="main-header">
         <div class="main-header-content">
             <div class="icon">
-                <a href="main.php">
+                <a href="#">
                     <img src="<?= constant('URL') ?>public/img/cinemax.png" alt="">
                 </a>
             </div>
             <nav class="main-nav-bar">
-            <a href="<?= constant('URL') ?>cliente"><i class="fas fa-home"></i> Inicio</a>
+                <a href="<?= constant('URL') ?>cliente"><i class="fas fa-home"></i> Inicio</a>
                 <a href="<?= constant('URL') ?>cliente/reserva"><i class="fas fa-bookmark"></i> Reservaciones</a>
                 <a href="<?= constant('URL') ?>cliente/logout"> <i class="fas fa-power-off"></i> Cerrar sesión</a>
-                <a href="#"> <i class="fab fa-gg-circle"></i> <?= $this->session->get('user')['NOMBRE_USUARIO'];?></a>
+                <a href="#"> <i class="fab fa-gg-circle"></i> <?= $this->session->get('user')['NOMBRE_USUARIO']; ?></a>
             </nav>
         </div>
     </header>
@@ -36,19 +36,6 @@
             <h4>Registrar reserva</h4>
             <label for="">Pelicula</label> <br>
             <select name="pelicula" id="pelicula">
-                <option value=""></option>
-                <option value="1">Godzilla vs. Kong</option>
-                <option value="2">Tom y Jerry</option>
-                <option value="3">Los Croods 2</option>
-                <option value="4">Harry Potter y la Orden del Fénix</option>
-                <option value="5">Up : una aventura de altura</option>
-                <option value="6">Monster Hunter: la cacería comienza</option>
-                <option value="7">Resident Evil 5: la venganza</option>
-                <option value="8">Sonic la película</option>
-                <option value="9">Soul</option>
-                <option value="10">El increíble castillo vagabundo</option>
-                <option value="11">Avengers Endgame</option>
-                <option value="12">Misterio a bordo</option>
             </select> <br>
             <label for="">Sala</label> <br>
             <input type="text" name="sala" id="sala"> <br>
@@ -58,8 +45,8 @@
             <input type="date" name="fecha" id="fecha"> <br>
             <label for="">Hora</label> <br>
             <input type="time" name="hora" id="hora"> <br>
-            <input type="button" value="Registrar" id=registrar> <br>
-            <input type="reset" value="Limpiar" onclick=''> <br>
+            <input type="button" value="Registrar" id='registrar'> <br>
+            <input type="reset" value="Limpiar"> <br>
             <hr>
             <div class="warnings" id="alertas"></div> <br>
         </form>
@@ -76,7 +63,7 @@
                     </ul>
                 </div>
                 <div class="search">
-                    <input type="text" class="search-input" id="search_input" placeholder="Busqueda"/>
+                    <input type="text" class="search-input" id="search_input" placeholder="Busqueda" />
                 </div>
             </div>
             <table class="datatable">
@@ -92,19 +79,15 @@
                         <th>ACCIONES</th>
                     </tr>
                 </thead>
-                <tbody id="reservas">
+                <tbody id="table_elements">
 
                 </tbody>
             </table>
             <div class="footer-tools">
-                <div class="list-items">
-                    Mostrar
-                    <select name="n-entries" id="n-entries" class="n-entries">
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                    </select>
-                    entradas
+                <div class="pages">
+                    <ul>
+                        <div class="pagenumbers" id="pagination"></div>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -136,7 +119,7 @@
             <label for="">Asiento</label> <br>
             <input type="text" name="asiento1" id="asiento1"> <br>
             <label for="">Fecha</label> <br>
-            <input type="date" min="<?php echo date("Y-m-d");?>" name="fecha1" id="fecha1"> <br>
+            <input type="date" min="<?php echo date("Y-m-d"); ?>" name="fecha1" id="fecha1"> <br>
             <label for="">Hora</label> <br>
             <input type="time" name="hora1" id="hora1"> <br>
             <input type="button" value="Actualizar" id="modificar"> <br>

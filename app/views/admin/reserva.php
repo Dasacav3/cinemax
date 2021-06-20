@@ -18,7 +18,7 @@
     <header class="main-header">
         <div class="main-header-content">
             <div class="icon">
-                <a href="main.php">
+                <a href="#">
                     <img src="<?= constant('URL') ?>public/img/cinemax.png" alt="">
                 </a>
             </div>
@@ -27,7 +27,7 @@
                 <a href="<?= constant('URL') ?>admin/reserva"><i class="fas fa-bookmark"></i> Reservaciones</a>
                 <a href="<?= constant('URL') ?>admin/usuario"><i class="fas fa-id-card"></i> Usuarios</a>
                 <a href="<?= constant('URL') ?>admin/logout"> <i class="fas fa-power-off"></i> Cerrar sesión</a>
-                <a href="#"> <i class="fab fa-gg-circle"></i> <?= $this->session->get('user')['NOMBRE_USUARIO'];?></a>
+                <a href="#"> <i class="fab fa-gg-circle"></i> <?= $this->session->get('user')['NOMBRE_USUARIO']; ?></a>
             </nav>
         </div>
     </header>
@@ -37,12 +37,9 @@
             <div class="header-tools">
                 <div class="tools">
                     <ul>
-                        <!-- <li>
-                            <span><input type="checkbox" name="" id="" /></span>
-                        </li> -->
-                        <!-- <li>
-                            <button id="abrirPopup-add" class="add"><i class="fas fa-plus-circle"></i></button>
-                        </li> -->
+                        <li>
+                            <button class="btn_generar" id="reporteReserva"><i class="fas fa-plus-circle"></i> Generar reporte</button>
+                        </li>
                     </ul>
                 </div>
                 <div class="search">
@@ -63,19 +60,15 @@
                         <th>ACCIONES</th>
                     </tr>
                 </thead>
-                <tbody id="reservas">
+                <tbody id="table_elements">
 
                 </tbody>
             </table>
             <div class="footer-tools">
-                <div class="list-items">
-                    Mostrar
-                    <select name="n-entries" id="n-entries" class="n-entries">
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                    </select>
-                    entradas
+                <div class="pages">
+                    <ul>
+                        <div class="pagenumbers" id="pagination"></div>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -107,7 +100,7 @@
             <label for="">Asiento</label> <br>
             <input type="text" name="asiento1" id="asiento1"> <br>
             <label for="">Fecha</label> <br>
-            <input type="date" min="<?php echo date("Y-m-d");?>" name="fecha1" id="fecha1"> <br>
+            <input type="date" min="<?php echo date("Y-m-d"); ?>" name="fecha1" id="fecha1"> <br>
             <label for="">Hora</label> <br>
             <input type="time" name="hora1" id="hora1"> <br>
             <label for="">Estado</label> <br>
@@ -121,6 +114,26 @@
             <input type="reset" value="Limpiar"> <br>
         </form>
     </div>
+
+    <div id="reporte_reserva_container" class="pop-up form-modal">
+        <form id="reporte_reserva" class="pop-up-wrap" method="POST">
+            <a href="#" class="closePopup closePopup-add"><i class="fas fa-times-circle"></i></a>
+            <h4 class="form-title">Rango de reporte reservas</h4>
+            <div class="form-fields">
+                <input type="hidden" value="reservas" name="reservas">
+                <div>
+                    <label for="">Fecha inicio</label> <br />
+                    <input type="date" name="fecha_inicio" id="fecha_inicio_reserva"> <br>
+                </div>
+                <div>
+                    <label for="">Fecha final</label> <br />
+                    <input type="date" name="fecha_final" id="fecha_final_reserva">
+                </div>
+            </div>
+            <input type="button" value="Generar" id="generarReporteReserva" />
+        </form>
+    </div>
+
     <script src="<?= constant('URL') ?>public/js/reservas.js" type="module"></script>
     <script src="<?= constant('URL') ?>public/js/modals-toggles.js"></script>
 </body>

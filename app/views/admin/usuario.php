@@ -18,7 +18,7 @@
     <header class="main-header">
         <div class="main-header-content">
             <div class="icon">
-                <a href="main.php">
+                <a href="#">
                     <img src="<?= constant('URL') ?>public/img/cinemax.png" alt="">
                 </a>
             </div>
@@ -27,7 +27,7 @@
                 <a href="<?= constant('URL') ?>admin/reserva"><i class="fas fa-bookmark"></i> Reservaciones</a>
                 <a href="<?= constant('URL') ?>admin/usuario"><i class="fas fa-id-card"></i> Usuarios</a>
                 <a href="<?= constant('URL') ?>admin/logout"> <i class="fas fa-power-off"></i> Cerrar sesión</a>
-                <a href="#"> <i class="fab fa-gg-circle"></i> <?= $this->session->get('user')['NOMBRE_USUARIO'];?></a>
+                <a href="#"> <i class="fab fa-gg-circle"></i> <?= $this->session->get('user')['NOMBRE_USUARIO']; ?></a>
             </nav>
         </div>
     </header>
@@ -53,19 +53,15 @@
                         <th>ACCIONES</th>
                     </tr>
                 </thead>
-                <tbody id="users">
+                <tbody id="table_elements">
 
                 </tbody>
             </table>
             <div class="footer-tools">
-                <div class="list-items">
-                    Mostrar
-                    <select name="n-entries" id="n-entries" class="n-entries">
-                        <option value="5">5</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                    </select>
-                    entradas
+                <div class="pages">
+                    <ul>
+                        <div class="pagenumbers" id="pagination"></div>
+                    </ul>
                 </div>
             </div>
         </div>
