@@ -12,51 +12,51 @@ class Reservas extends Controller
     }
 
     public function listarReservas()
-    {  
+    {
         $data = file_get_contents("php://input");
         $resultado = $this->model->get($data);
         $session = $this->session->get('user')['TIPO_USUARIO'];
 
-        if ($session == 'Administrador') {
-            if (!empty($resultado)) {
-                foreach ($resultado as $data) {
-                    echo "<tr>
-                    <td>" . $data['ID_RESERVA'] . "</td>
-                    <td>" . $data['ID_PELICULA'] . "</td>
-                    <td>" . $data['ID_CLIENTE'] . "</td>
-                    <td>" . $data['NUMERO_SALA'] . "</td>
-                    <td>" . $data['CODIGO_ASIENTO'] . "</td>
-                    <td>" . $data['FECHA_RESERVACION'] . "</td>
-                    <td>" . $data['HORA_RESERVACION'] . "</td>
-                    <td>" . $data['ESTADO_RESERVACION'] . "</td> 
-                    <td><button class='abrirPopup-edit btn-edit' type='button' id='btnDelete-".$data['ID_RESERVA']."'>Editar</button>
-                        <button class='btn-delete' type='button' id='btnEdit-".$data['ID_RESERVA']."'>Eliminar</button>
-                    </td>   
-                </tr>";
-                }
-            }
-        } else {
-            if (!empty($resultado)) {
-                foreach ($resultado as $data) {
-                    echo "<tr>
-                    <td>" . $data['ID_RESERVA'] . "</td>
-                    <td>" . $data['ID_PELICULA'] . "</td>
-                    <td>" . $data['NUMERO_SALA'] . "</td>
-                    <td>" . $data['CODIGO_ASIENTO'] . "</td>
-                    <td>" . $data['FECHA_RESERVACION'] . "</td>
-                    <td>" . $data['HORA_RESERVACION'] . "</td>
-                    <td>" . $data['ESTADO_RESERVACION'] . "</td>
-                    <td>";
-                    if($data['ESTADO_RESERVACION'] == 'Activa'){
-                    echo "
-                        <button class='btn-delete' type='button' id='btnEdit-".$data['ID_RESERVA']."'>Cancelar</button>
-                    </td>   
-                    </tr>";
-                    }
-                    
-                }
-            }
-        }
+        // if ($session == 'Administrador') {
+        //     if (!empty($resultado)) {
+        //         foreach ($resultado as $data) {
+        //             echo "<tr>
+        //             <td>" . $data['ID_RESERVA'] . "</td>
+        //             <td>" . $data['ID_PELICULA'] . "</td>
+        //             <td>" . $data['ID_CLIENTE'] . "</td>
+        //             <td>" . $data['NUMERO_SALA'] . "</td>
+        //             <td>" . $data['CODIGO_ASIENTO'] . "</td>
+        //             <td>" . $data['FECHA_RESERVACION'] . "</td>
+        //             <td>" . $data['HORA_RESERVACION'] . "</td>
+        //             <td>" . $data['ESTADO_RESERVACION'] . "</td> 
+        //             <td><button class='abrirPopup-edit btn-edit' type='button' id='btnDelete-" . $data['ID_RESERVA'] . "'>Editar</button>
+        //                 <button class='btn-delete' type='button' id='btnEdit-" . $data['ID_RESERVA'] . "'>Eliminar</button>
+        //             </td>   
+        //         </tr>";
+        //         }
+        //     }
+        // } else {
+        //     if (!empty($resultado)) {
+        //         foreach ($resultado as $data) {
+        //             echo "<tr>
+        //             <td>" . $data['ID_RESERVA'] . "</td>
+        //             <td>" . $data['ID_PELICULA'] . "</td>
+        //             <td>" . $data['NUMERO_SALA'] . "</td>
+        //             <td>" . $data['CODIGO_ASIENTO'] . "</td>
+        //             <td>" . $data['FECHA_RESERVACION'] . "</td>
+        //             <td>" . $data['HORA_RESERVACION'] . "</td>
+        //             <td>" . $data['ESTADO_RESERVACION'] . "</td>
+        //             <td>";
+        //             if ($data['ESTADO_RESERVACION'] == 'Activa') {
+        //                 echo "
+        //                 <button class='btn-delete' type='button' id='btnEdit-" . $data['ID_RESERVA'] . "'>Cancelar</button>
+        //             </td>   
+        //             </tr>";
+        //             }
+        //         }
+        //     }
+        // }
+        echo json_encode($resultado);
     }
 
     public function añadirReserva()
@@ -150,6 +150,22 @@ class Reservas extends Controller
 
         if ($resultado) {
             echo "Registro eliminado";
+        } else {
+            echo "Hubo un problema";
+        }
+    }
+
+    public function getPelicula()
+    {
+        $resultado = $this->model->listarPelicula();
+
+        if (!empty($resultado)) {
+            echo "<option value=''></option>";
+            foreach ($resultado as $data) {
+                echo "
+                    <option value=" . $data['ID_PELICULA'] . ">" . $data['TITULO_PELICULA'] . "</option>
+                 ";
+            }
         } else {
             echo "Hubo un problema";
         }

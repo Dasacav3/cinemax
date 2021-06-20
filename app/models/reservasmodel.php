@@ -7,39 +7,39 @@ class ReservasModel extends Model
         parent::__construct();
     }
 
-    public function get($data)
+    public function get($data1)
     {
         $id = $this->session->get('user')['ID_CLIENTE'];
         $user = $this->session->get('user')['TIPO_USUARIO'];
 
-        if (!empty($data)) {
+        if ($data1 != "") {
             if ($user == 'Administrador') {
                 try {
-                    $query = $this->db->connect()->prepare("SELECT * FROM reserva WHERE id_reserva LIKE '%$data%' OR fecha_reservacion '%$data%'");
+                    $query = $this->db->connect()->prepare("SELECT * FROM reserva WHERE id_reserva LIKE '%" . $data1 . "%' OR fecha_reservacion '%" . $data1 . "%'");
                     $query->execute();
                     $data = $query->fetchAll(PDO::FETCH_ASSOC);
                 } catch (Exception $e) {
-                    return false;
+                    return $e->getMessage();
                 }
                 return $data;
             } else if ($user == 'Cliente') {
                 try {
-                    $query = $this->db->connect()->prepare("SELECT * FROM reserva WHERE id_cliente = :id AND id_reserva LIKE '%$data%' OR fecha_reservacion '%$data%'");
+                    $query = $this->db->connect()->prepare("SELECT * FROM reserva WHERE id_cliente = :id AND id_reserva LIKE '%" . $data1 . "%' OR fecha_reservacion '%" . $data1 . "%'");
                     $query->execute(["id" => $id]);
                     $data = $query->fetchAll(PDO::FETCH_ASSOC);
                 } catch (Exception $e) {
-                    return false;
+                    return $e->getMessage();
                 }
                 return $data;
             }
-        }else{
+        } else {
             if ($user == 'Administrador') {
                 try {
                     $query = $this->db->connect()->prepare("SELECT * FROM reserva ORDER BY id_reserva DESC");
                     $query->execute();
                     $data = $query->fetchAll(PDO::FETCH_ASSOC);
                 } catch (Exception $e) {
-                    return false;
+                    return $e->getMessage();
                 }
                 return $data;
             } else if ($user == 'Cliente') {
@@ -48,10 +48,10 @@ class ReservasModel extends Model
                     $query->execute(["id" => $id]);
                     $data = $query->fetchAll(PDO::FETCH_ASSOC);
                 } catch (Exception $e) {
-                    return false;
+                    return $e->getMessage();
                 }
                 return $data;
-            } 
+            }
         }
     }
 
@@ -128,5 +128,17 @@ class ReservasModel extends Model
         } catch (Exception $e) {
             return false;
         }
+    }
+
+    public function listarPelicula()
+    {
+        try {
+            $query = $this->db->connect()->prepare("SELECT * FROM pelicula");
+            $query->execute();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            return false;
+        }
+        return $data;
     }
 }
