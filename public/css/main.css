@@ -1,4 +1,5 @@
 @import url("colors_fonts.css");
+@import url("background.css");
 
 html {
 	scroll-behavior: smooth;
@@ -441,7 +442,7 @@ body::-webkit-scrollbar-thumb {
 #form_add_movie input,
 #form_add_movie select,
 #form_edit_movie input,
-#form_edit_movie select{
+#form_edit_movie select {
 	width: 300px;
 	height: 30px;
 	border: none;
@@ -449,8 +450,84 @@ body::-webkit-scrollbar-thumb {
 }
 
 #form_add_movie input[type="button"],
-#form_edit_movie input[type="button"]{
+#form_edit_movie input[type="button"] {
 	margin: 0.8em auto;
 	background: var(--red-dark);
 	color: var(--champagne-pink);
+}
+
+form#reporte_reserva .form-title{
+	text-align: center;
+	font-size: 1.2em;
+	margin: 1em 0;
+	color: var(--champagne-pink);
+}
+
+form#reporte_reserva input{
+	width: 280px;
+	height: 2em;
+	border-radius: 0.5em;
+	border: none;
+}
+
+form#reporte_reserva input[type="button"]{
+	margin-top: 1em;
+	background: var(--red-dark);
+	cursor: pointer;
+}
+
+/* ------------------------------------------------------------- */
+/* Cursor */
+/* ------------------------------------------------------------- */
+
+.submenu {
+	display: flex;
+	justify-content: end;
+	flex-direction: column;
+	width: 200px;
+	position: absolute;
+	right: 100px;
+	top: 60px;
+	background: var(--gray-dark);
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 1s;
+	padding: 1rem;
+}
+
+.submenu li{
+	width: 200px;
+}
+
+.submenu li {
+	display: inline;
+	color: #fff;
+	text-decoration: none;
+}
+
+.main-nav-bar:hover .submenu {
+	visibility: visible;
+	opacity: 1;
+}
+
+.cursor {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	border: 3px solid rgb(214, 75, 11);
+	pointer-events: none;
+	transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	background: linear-gradient(to bottom, transparent, rgb(238, 19, 19));
+	box-shadow: 0, 0, 20px rgb(238, 19, 19), 0, 0, 30px rgb(238, 19, 19), 0, 0, 50px rgb(238, 19, 19);
+	animation: coolors 5s linear infinite;
+}
+
+@keyframes coolors {
+	0% {
+		filter: hue-rotate(0deg);
+	}
+	100% {
+		filter: hue-rotate(360deg);
+	}
 }

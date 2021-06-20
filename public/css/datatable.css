@@ -112,8 +112,8 @@
 }
 
 .datatable-container .header-tools .tools ul li a,
-.datatable-container .footer-tools .pages ul li a{
-    color: var(--primary-color);
+.datatable-container .footer-tools .pages ul li a {
+	color: var(--primary-color);
 }
 
 .datatable-container .footer-tools .pages ul li button:hover,
@@ -136,8 +136,8 @@
 .datatable-container .datatable {
 	border-collapse: collapse;
 	width: 100%;
-    min-width: 400px;
-    overflow-x: auto;
+	min-width: 400px;
+	overflow-x: auto;
 }
 
 .datatable-container .datatable,
@@ -211,17 +211,52 @@
 }
 
 .btn-edit,
-.btn-delete{
+.btn-delete {
 	padding: 0.2em 1em;
 	border-radius: 5px;
 	border: none;
 	font-weight: 600;
 }
 
-.btn-edit{
+.btn-edit {
 	background: var(--emerald);
 }
 
-.btn-delete{
+.btn-delete {
 	background: var(--popstar);
+}
+
+/* Pagination */
+
+.pagenumbers {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.pagenumbers button {
+	width: 30px;
+	height: 30px;
+	appearance: none;
+	border: none;
+	border-radius: 1em;
+	outline: none;
+	cursor: pointer;
+	background-color: var(--secondary-color);
+	margin: 5px;
+	transition: 0.4s;
+	color: #fff;
+	font-size: 18px;
+	text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.pagenumbers button:hover {
+	background-color: var(--emerald);
+}
+
+.pagenumbers button.active {
+	background: var(--emerald);
+	box-shadow: inset 0 0 4px rgba(0, 0, 0, 0, 0.2);
 }
