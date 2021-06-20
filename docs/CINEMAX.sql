@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `administrador` (
 /*!40000 ALTER TABLE `administrador` DISABLE KEYS */;
 INSERT INTO `administrador` (`ID_ADMIN`, `NOMBRE_ADMIN`, `APELLIDO_ADMIN`, `EMAIL_ADMIN`, `CELULAR_ADMIN`, `ID_USUARIO`) VALUES
 	(1, 'Fabian', 'Combita', 'fdcombita24@misena.edu.co', '3145896237', 8),
-	(2, 'Daniel', 'Carrillo', 'dscv3719@gmail.com', '3194608272', 1);
+	(2, 'Daniel', 'Carrillo', 'dscarrillo37@misena.edu.co', '3194608272', 1);
 /*!40000 ALTER TABLE `administrador` ENABLE KEYS */;
 
 -- Volcando estructura para tabla cinemax.cliente
@@ -59,14 +59,8 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
 INSERT INTO `cliente` (`ID_CLIENTE`, `NOMBRE_CLIENTE`, `APELLIDO_CLIENTE`, `EDAD`, `EMAIL_CLIENTE`, `CELULAR_CLIENTE`, `ID_USUARIO`) VALUES
 	(14, 'Sergio', 'Ayala', 18, 'sergioayala@gmail.com', '3172589094', 14),
-	(18, 'Jaime', 'Mogollon', 40, 'jaime@gmail.com', '3114789532', 18),
-	(21, 'Julian', 'Rodriguez', 30, 'julian@gmail.com', '3178453214', 21),
-	(22, 'Oscar', 'Barajas', 17, 'oscar@gmail.com', '3174563217', 22),
-	(55, 'Daniel Santiago', 'Velasquez', 18, 'dscarrillo37@misena.edu.co', '3103465702', 56),
-	(65, 'Ana Fabiola', 'Romero', 50, 'ana.velasquez2010@hotmail.com', '11111111', 66),
-	(66, 'Alejandra', 'Niño', 22, 'aleja@gmail.com', '1111122222', 69),
-	(67, 'Isabela', 'Pineda', 18, 'isabela@gmail.com', '3124785142', 70),
-	(68, 'Angelica', 'Triana', 36, 'angelica@gmail.com', '3258746985', 72);
+	(18, 'Jaime', 'Mogollon', 40, 'jaime@gmail.com', '3114789532', 18);
+
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 
 -- Volcando estructura para tabla cinemax.pelicula
@@ -122,7 +116,7 @@ INSERT INTO `reserva` (`ID_RESERVA`, `ID_PELICULA`, `ID_CLIENTE`, `NUMERO_SALA`,
 	(541, 8, 14, 36, 30, '2021-04-02', '23:26:00', 'Activa'),
 	(542, 3, 18, 44, 40, '2021-04-30', '20:00:00', 'Cancelada'),
 	(543, 9, 18, 88, 88, '2021-04-28', '17:00:00', 'Completada'),
-	(558, 8, 21, 98, 14, '2021-04-21', '19:00:00', 'Completada'),
+	(558, 8, 14, 98, 14, '2021-04-21', '19:00:00', 'Completada'),
 	(562, 5, 18, 15, 12, '2021-04-14', '12:00:00', 'Activa'),
 	(563, 8, 18, 130, 130, '2021-04-21', '12:00:00', 'Activa'),
 	(566, 2, 18, 15, 100, '2021-04-14', '12:00:00', 'Cancelada'),
@@ -144,18 +138,11 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Volcando datos para la tabla cinemax.usuario: ~13 rows (aproximadamente)
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
 INSERT INTO `usuario` (`ID_USUARIO`, `NOMBRE_USUARIO`, `CLAVE_USUARIO`, `TIPO_USUARIO`) VALUES
-	(1, 'dscv3719@gmail.com', '1234', 'Administrador'),
+	(1, 'example@gmail.com', '1234', 'Administrador'),
 	(8, 'fdcombita24@misena.edu.co', '1234', 'Administrador'),
 	(14, 'sergioayala@gmail.com', '1234', 'Cliente'),
-	(18, 'jaime@gmail.com', '1234', 'Cliente'),
-	(21, 'julian@gmail.com', '1234', 'Cliente'),
-	(22, 'oscar@gmail.com', '1234', 'Cliente'),
-	(35, 'valentina@gmail.com', '1234', 'Cliente'),
-	(56, 'dscarrillo37@misena.edu.co', '1234', 'Cliente'),
-	(66, 'ana.velasquez2010@hotmail.com', '1234', 'Cliente'),
-	(69, 'aleja@gmail.com', '1234', 'Cliente'),
-	(70, 'isabela@gmail.com', '1234', 'Cliente'),
-	(72, 'angelica@gmail.com', '1234', 'Cliente');
+	(18, 'jaime@gmail.com', '1234', 'Cliente');
+
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
