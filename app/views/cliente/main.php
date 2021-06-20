@@ -18,7 +18,7 @@
     <header class="main-header">
         <div class="main-header-content">
             <div class="icon">
-                <a href="main.php">
+                <a href="#">
                     <img src="<?= constant('URL') ?>public/img/cinemax.png" alt="">
                 </a>
             </div>
