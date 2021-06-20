@@ -1,5 +1,5 @@
 "use strict";
-import { URL } from "./constantes.js";
+import { URL, changeCursor, changeBackground } from "./constantes.js";
 
 window.addEventListener("DOMContentLoaded", () => {
 	let modal = document.getElementById("form_add_movie");
@@ -29,16 +29,28 @@ window.addEventListener("DOMContentLoaded", () => {
 		wrap.style.zIndex = 100;
 	}
 
+	document.addEventListener("keypress", (e) => {
+		if (e.keyCode == 32) {
+			let body = document.getElementById("body");
+			let section = document.getElementById("background_secret");
+			let section_text = document.getElementById("text-out");
+			let container = document.getElementById("contenido_page");
+			body.style.overflow = "auto";
+			container.classList.remove("hidden");
+			section.classList.remove("show");
+			section_text.classList.remove("show");
+		}
+	});
+
+	let cursor;
+
 	function addMovie() {
 		let form = document.getElementById("form_add_movie");
-		fetch(URL + "peliculas/add", {
-			method: "POST",
-			body: new FormData(form),
-		})
-			.then((response) => response.text())
-			.then((response) => {
-				console.log(response);
-				if (response == "ok") {
+		let req = new XMLHttpRequest();
+		req.open("POST", URL + "peliculas/add", true);
+		req.onreadystatechange = () => {
+			if (req.readyState == 4) {
+				if (req.status == 200 && req.responseText == "ok") {
 					const Toast = Swal.mixin({
 						toast: true,
 						position: "top-end",
@@ -77,32 +89,45 @@ window.addEventListener("DOMContentLoaded", () => {
 					});
 					form.reset();
 				}
-			});
+			}
+		};
+		req.send(new FormData(form));
 	}
 
 	getMovie();
 
 	function getMovie() {
 		let contenedor = document.getElementById("movies");
-		fetch(URL + "peliculas/get", {
-			method: "POST",
-		})
-			.then((response) => response.text())
-			.then((response) => {
-				contenedor.innerHTML = response;
-			});
-		setTimeout(() => {
-			let btnDelete = document.getElementsByClassName("btnDelete");
-			let btnEdit = document.getElementsByClassName("btnEdit");
+		let req = new XMLHttpRequest();
+		req.open("POST", URL + "peliculas/get", true);
+		req.onreadystatechange = () => {
+			if (req.readyState == 4) {
+				if (req.status == 200) {
+					contenedor.innerHTML = req.responseText;
+					console.log("XML REQUEST");
+					setTimeout(() => {
+						let btnDelete = document.getElementsByClassName("btnDelete");
+						let btnEdit = document.getElementsByClassName("btnEdit");
 
-			for (let i = 0; i < btnDelete.length; i++) {
-				btnDelete[i].addEventListener("click", deleteMovie, false);
-			}
+						for (let i = 0; i < btnDelete.length; i++) {
+							btnDelete[i].addEventListener("click", deleteMovie, false);
+						}
 
-			for (let i = 0; i < btnEdit.length; i++) {
-				btnEdit[i].addEventListener("click", editMovie, false);
+						for (let i = 0; i < btnEdit.length; i++) {
+							btnEdit[i].addEventListener("click", editMovie, false);
+						}
+
+						let changeC = document.getElementById("btn_cursor");
+						changeC.addEventListener("click", changeCursor, false);
+						let changeB = document.getElementById("btn_background");
+						changeB.addEventListener("click", changeBackground, false);
+
+						cursor = document.querySelector(".cursor");
+					}, 1000);
+				}
 			}
-		}, 1000);
+		};
+		req.send();
 	}
 
 	function closeModal() {
@@ -126,20 +151,20 @@ window.addEventListener("DOMContentLoaded", () => {
 			cancelButtonText: "Cancelar",
 		}).then((result) => {
 			if (result.isConfirmed) {
-				fetch(URL + "peliculas/delete", {
-					method: "POST",
-					body: idMovie[1],
-				})
-					.then((response) => response.text())
-					.then((response) => {
-						if (response == "ok") {
+				let req = new XMLHttpRequest();
+				req.open("POST", URL + "peliculas/delete", true);
+				req.onreadystatechange = () => {
+					if (req.readyState == 4) {
+						if (req.status == 200) {
 							Swal.fire("Eliminación", "La pelicula fue eliminada exitosamente", "success");
 							getMovie();
-						} else {
-							Swal.fire("Error", "La pelicula no se pudó eliminar", "error");
-							getMovie();
 						}
-					});
+					} else {
+						Swal.fire("Error", "La pelicula no se pudó eliminar", "error");
+						getMovie();
+					}
+				};
+				req.send(idMovie[1]);
 			}
 		});
 	}
@@ -152,18 +177,19 @@ window.addEventListener("DOMContentLoaded", () => {
 		let movieTitle1 = document.getElementById("movieTitle1");
 		let movieGender1 = document.getElementById("movieGender1");
 		let añoPublicacion1 = document.getElementById("añoPublicacion1");
-		fetch(URL + "peliculas/getEditData", {
-			method: "POST",
-			body: idMovie,
-		})
-			.then((response) => response.json())
-			.then((response) => {
-				console.log(response);
-				idMovie1.value = response.id_pelicula;
-				movieTitle1.value = response.titulo_pelicula;
-				movieGender1.value = response.genero;
-				añoPublicacion1.value = response.año_publicacion;
-			});
+		let req = new XMLHttpRequest();
+		req.open("POST", URL + "peliculas/getEditData", true);
+		req.onreadystatechange = () => {
+			if (req.readyState == 4) {
+				if (req.status == 200) {
+					idMovie1.value = JSON.parse(req.responseText).id_pelicula;
+					movieTitle1.value = JSON.parse(req.responseText).titulo_pelicula;
+					movieGender1.value = JSON.parse(req.responseText).genero;
+					añoPublicacion1.value = JSON.parse(req.responseText).año_publicacion;
+				}
+			}
+		};
+		req.send(idMovie);
 		modal1.classList.add("show");
 		wrap1.classList.add("show");
 		modal1.style.zIndex = 100;
@@ -172,14 +198,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
 	function updateMovie() {
 		let form = document.getElementById("form_edit_movie");
-		fetch(URL + "peliculas/edit", {
-			method: "POST",
-			body: new FormData(form),
-		})
-			.then((response) => response.text())
-			.then((response) => {
-				console.log(response);
-				if (response == "ok") {
+		let req = new XMLHttpRequest();
+		req.open("POST", URL + "peliculas/edit", true);
+		req.onreadystatechange = () => {
+			if (req.readyState == 4) {
+				if (req.status == 200 && req.responseText == "ok") {
 					Swal.fire("Actualización", "La pelicula fue editada exitosamente", "success");
 					getMovie();
 					closeModal();
@@ -188,6 +211,8 @@ window.addEventListener("DOMContentLoaded", () => {
 					Swal.fire("Error", "Pelicula no actualizada", "error");
 					form.reset();
 				}
-			});
+			}
+		};
+		req.send(new FormData(form));
 	}
 });

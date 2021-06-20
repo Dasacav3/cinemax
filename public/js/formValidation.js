@@ -1,6 +1,6 @@
 // Registro
 
-import {URL} from "./constantes.js";
+import { URL } from "./constantes.js";
 
 const formulario = document.getElementById("form_register");
 const nombre = document.getElementById("nombres");
@@ -58,19 +58,21 @@ formulario.addEventListener("submit", (e) => {
 		error.innerHTML = warnings;
 	} else {
 		error.innerHTML = "";
-		fetch(`${URL}registro/registrarCliente`, {
-			body: new FormData(formulario),
-			method: "POST",
-		})
-			.then((res) => res.text())
-			.then((response) => {
-				formulario.reset();
-				mensaje.innerHTML = response;
-				if (response.trim() == "<p class='success'>Usuario registrado correctamente</p>") {
-					setTimeout(() => {
-						window.location.href = `${URL}login`;
-					}, 2000);
+		let req = new XMLHttpRequest();
+		req.open("POST", URL + "registro/registrarCliente", true);
+		req.send(new FormData(formulario));
+		req.onreadystatechange = () => {
+			if (req.readyState == 4) {
+				if (req.status == 200) {
+					formulario.reset();
+					mensaje.innerHTML = req.responseText;
+					if (req.responseText.trim() == "<p class='success'>Usuario registrado correctamente</p>") {
+						setTimeout(() => {
+							window.location.href = `${URL}login`;
+						}, 2000);
+					}
 				}
-			});
+			}
+		};
 	}
 });
