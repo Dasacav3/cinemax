@@ -15,7 +15,7 @@ class ReservasModel extends Model
         if ($data1 != "") {
             if ($user == 'Administrador') {
                 try {
-                    $query = $this->db->connect()->prepare("SELECT * FROM reserva WHERE id_reserva LIKE '%" . $data1 . "%' OR fecha_reservacion '%" . $data1 . "%'");
+                    $query = $this->db->connect()->prepare("SELECT * FROM reserva WHERE id_reserva LIKE '%$data1%' OR fecha_reservacion '%$data1%'");
                     $query->execute();
                     $data = $query->fetchAll(PDO::FETCH_ASSOC);
                 } catch (Exception $e) {
@@ -24,7 +24,7 @@ class ReservasModel extends Model
                 return $data;
             } else if ($user == 'Cliente') {
                 try {
-                    $query = $this->db->connect()->prepare("SELECT * FROM reserva WHERE id_cliente = :id AND id_reserva LIKE '%" . $data1 . "%' OR fecha_reservacion '%" . $data1 . "%'");
+                    $query = $this->db->connect()->prepare("SELECT * FROM reserva WHERE id_cliente = :id AND id_reserva LIKE '%$data1%' OR fecha_reservacion '%$data1%'");
                     $query->execute(["id" => $id]);
                     $data = $query->fetchAll(PDO::FETCH_ASSOC);
                 } catch (Exception $e) {

@@ -233,7 +233,7 @@ window.addEventListener("DOMContentLoaded", () => {
 							});
 							Toast.fire({
 								icon: "success",
-								title: "Reservación eliminada",
+								title: "Reservación cancelada",
 							});
 							listarReservas();
 						}
