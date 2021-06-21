@@ -23,8 +23,8 @@ window.addEventListener("DOMContentLoaded", () => {
 						<td> ${item[i].NOMBRE_USUARIO}  </td>
 						<td> ${item[i].CLAVE_USUARIO}  </td>
 						<td> ${item[i].TIPO_USUARIO}  </td>
-						<td><button class='abrirPopup-edit btn-edit' type='button' id='btnDelete- ${item[i].ID_USUARIO} '>Editar</button>
-                        <button class='btn-delete' type='button' id='btnEdit- ${item[i].ID_USUARIO} '>Eliminar</button>
+						<td><button class='abrirPopup-edit btn-edit' type='button' id='btnDelete- ${item[i].ID_USUARIO} '><i class='fas fa-edit'></i></button>
+                        <button class='btn-delete' type='button' id='btnEdit- ${item[i].ID_USUARIO} '><i class='fas fa-trash'></i></button>
                     </td>  
 					</tr>`;
 					
