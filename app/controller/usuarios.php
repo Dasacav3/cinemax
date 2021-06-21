@@ -10,24 +10,7 @@ class Usuarios extends Controller
 
     public function listarUsers()
     {
-        $data = file_get_contents("php://input");
-
-        $resultado = $this->model->get($data);
-
-        // if (!empty($resultado)) {
-        //     foreach ($resultado as $data) {
-        //         echo "<tr>
-        //                 <td>" . $data['ID_USUARIO'] . "</td>
-        //                 <td>" . $data['NOMBRE_USUARIO'] . "</td>
-        //                 <td>" . $data['CLAVE_USUARIO'] . "</td>
-        //                 <td>" . $data['TIPO_USUARIO'] . "</td>  
-        //                 <td> 
-        //                     <button class='abrirPopup-edit btn-edit' id='btnEdit-".$data['ID_USUARIO']."'>Editar</button>
-        //                     <button class='btn-delete' id='btnDelete-".$data['ID_USUARIO']."'>Eliminar</button> 
-        //                 </td>
-        //             </tr>";
-        //     }
-        // }
+        $resultado = $this->model->get(file_get_contents("php://input"));
 
         echo json_encode($resultado);
     }

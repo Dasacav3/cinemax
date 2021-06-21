@@ -10,14 +10,13 @@ class UsuariosModel extends Model
 
     public function get($data)
     {
-
-        if (!empty($data)) {
+        if ($data != "") {
             try {
                 $query = $this->db->connect()->prepare("SELECT * FROM usuario WHERE id_usuario LIKE '%$data%' OR nombre_usuario LIKE '%$data%' OR tipo_usuario LIKE '%$data%'");
                 $query->execute();
-                $data = $query->fetchAll(PDO::FETCH_ASSOC);
-                if (count($data) > 1) {
-                    return $data;
+                $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
+                if (count($resultado) > 1) {
+                    return $resultado;
                 } else {
                     return false;
                 }
@@ -28,9 +27,9 @@ class UsuariosModel extends Model
             try {
                 $query = $this->db->connect()->prepare("SELECT * FROM usuario ORDER BY id_usuario DESC");
                 $query->execute();
-                $data = $query->fetchAll(PDO::FETCH_ASSOC);
-                if (count($data) > 1) {
-                    return $data;
+                $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
+                if (count($resultado) > 1) {
+                    return $resultado;
                 } else {
                     return false;
                 }
