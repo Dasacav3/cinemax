@@ -10,33 +10,18 @@ class UsuariosModel extends Model
 
     public function get($data)
     {
-        if ($data != "") {
-            try {
+        try {
+            $query = $this->db->connect()->prepare("SELECT * FROM usuario ORDER BY id_usuario DESC");
+            $query->execute();
+            if ($data != "") {
                 $query = $this->db->connect()->prepare("SELECT * FROM usuario WHERE id_usuario LIKE '%$data%' OR nombre_usuario LIKE '%$data%' OR tipo_usuario LIKE '%$data%'");
                 $query->execute();
-                $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
-                if (count($resultado) > 1) {
-                    return $resultado;
-                } else {
-                    return false;
-                }
-            } catch (Exception $e) {
-                return false;
             }
-        } else {
-            try {
-                $query = $this->db->connect()->prepare("SELECT * FROM usuario ORDER BY id_usuario DESC");
-                $query->execute();
-                $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
-                if (count($resultado) > 1) {
-                    return $resultado;
-                } else {
-                    return false;
-                }
-            } catch (Exception $e) {
-                return false;
-            }
+            $resultado = $query->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            return $e->getMessage();
         }
+        return $resultado;
     }
 
     public function listar($id)
