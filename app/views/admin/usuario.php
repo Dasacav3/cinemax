@@ -17,12 +17,15 @@
 <body>
     <header class="main-header">
         <div class="main-header-content">
+            <div id="sidebarIcon">
+                <i class="fas fa-bars"></i>
+            </div>
             <div class="icon">
                 <a href="#">
                     <img src="<?= constant('URL') ?>public/img/cinemax.png" alt="">
                 </a>
             </div>
-            <nav class="main-nav-bar">
+            <nav class="main-nav-bar" id="navbar_responsive">
                 <a href="<?= constant('URL') ?>admin"><i class="fas fa-home"></i> Inicio</a>
                 <a href="<?= constant('URL') ?>admin/reserva"><i class="fas fa-bookmark"></i> Reservaciones</a>
                 <a href="<?= constant('URL') ?>admin/usuario"><i class="fas fa-id-card"></i> Usuarios</a>

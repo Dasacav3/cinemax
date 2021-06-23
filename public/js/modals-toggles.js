@@ -2,19 +2,29 @@
 
 // Sidebar Toggle Codes;
 var sidebarOpen = false;
-var sidebar = document.getElementById('sidebar');
+var sidebar = document.getElementById('navbar_responsive');
 var sidebarCloseIcon = document.getElementById('sidebarIcon');
 
-function toggleSidebar() {
+sidebarCloseIcon.addEventListener('click', () => {
   if (!sidebarOpen) {
-    sidebar.classList.add('sidebar_responsive');
+    sidebar.classList.add('show');
     sidebarOpen = true;
-  }
-}
-
-function closeSidebar() {
-  if (sidebarOpen) {
-    sidebar.classList.remove('sidebar_responsive');
+  }else{
+    sidebar.classList.remove('show');
     sidebarOpen = false;
   }
-}
+})
+
+// function toggleSidebar() {
+//   if (!sidebarOpen) {
+//     sidebar.classList.add('show');
+//     sidebarOpen = true;
+//   }
+// }
+
+// function closeSidebar() {
+//   if (sidebarOpen) {
+//     sidebar.classList.remove('show');
+//     sidebarOpen = false;
+//   }
+// }

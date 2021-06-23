@@ -17,12 +17,15 @@
 <body>
     <header class="main-header">
         <div class="main-header-content">
+            <div id="sidebarIcon">
+                <i class="fas fa-bars"></i>
+            </div>
             <div class="icon">
                 <a href="#">
                     <img src="<?= constant('URL') ?>public/img/cinemax.png" alt="">
                 </a>
             </div>
-            <nav class="main-nav-bar">
+            <nav class="main-nav-bar" id="navbar_responsive">
                 <a href="<?= constant('URL') ?>cliente"><i class="fas fa-home"></i> Inicio</a>
                 <a href="<?= constant('URL') ?>cliente/reserva"><i class="fas fa-bookmark"></i> Reservaciones</a>
                 <a href="<?= constant('URL') ?>cliente/logout"> <i class="fas fa-power-off"></i> Cerrar sesión</a>
@@ -41,6 +44,7 @@
         </section>
     </main>
     <script src="<?= constant('URL') ?>public/js/pelicula2.js" type="module"></script>
+    <script src="<?= constant('URL') ?>public/js/modals-toggles.js"></script>
 </body>
 
 </html>
