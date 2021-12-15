@@ -12,6 +12,12 @@
     <title>Iniciar sesión</title>
 </head>
 
+<?php
+if ($this->session->get('user')['TIPO_USUARIO']) {
+    header('location:' . constant('URL') . strtolower($this->session->get('user')['TIPO_USUARIO']));
+}
+?>
+
 <body>
     <div class="login_container">
         <div class="login">
