@@ -79,18 +79,18 @@ INSERT INTO `pelicula` (`ID_PELICULA`, `TITULO_PELICULA`, `GENERO`, `AÑO_PUBLIC
 	(1, 'Godzilla vs. Kong', 'Accion/Ciencia Ficcion', '2021', 'godzilla-vs-kong.jpg'),
 	(2, 'Tom y Jerry', 'Infantil/Comedia', '2021', 'tom_y_jerry.jpg'),
 	(3, 'Los Croods 2', 'Aventura/Infantil', '2021', 'los_croods_2.jpg'),
-	(4, 'Harry Potter y la Orden del Fénix', 'Suspenso/Accion/Aventura', '2007', 'harry_potter_fenix_order.jpg'),
-	(5, 'Up : una aventura de altura', 'Infantil/Aventura', '2009', 'up-una-aventura-de-altura.jpeg'),
-	(6, 'Monster Hunter: la cacería comienza', 'Acción/Aventura', '2020', 'monster_hunter.jpg'),
-	(7, 'Resident Evil 5: la venganza', 'Acción/Terror', '2012', 'resident_evil_v.jpg'),
-	(8, 'Sonic la película', 'Infantil/Comedia', '2020', 'sonic_la_pelicula.jpg'),
-	(9, 'Soul', 'Infantil/Comedia', '2020', 'soul.jpg'),
-	(10, 'El increíble castillo vagabundo', 'Fantasía/Aventura', '2004', 'castillo_vagabundo.jpg'),
-	(11, 'Avengers: Endgame', 'Acción/Ciencia ficción', '2019', 'avengers-endgame.jpeg'),
-	(12, 'Misterio a bordo', 'Comedia/Misterio', '2019', 'murder_mystery.jpg'),
-	(13, 'Dragon Ball Super Broly', ' Acción/Anime', '2018', 'thumbs/images.jpg'),
-	(14, 'El rey león', 'Infantil/Aventura', '2019', 'thumbs/The_Lion_King_Teaser_Poster_3_2019_Español.jpg'),
-	(15, 'A mi altura', 'Comedia/Romántica', '2019', 'thumbs/0126387.jpg');
+	(4, 'Harry Potter y la Orden del Fénix', 'Suspenso/Accion/Aventura', '2007', 'public/movies/harry_potter_fenix_order.jpg'),
+	(5, 'Up : una aventura de altura', 'Infantil/Aventura', '2009', 'public/movies/up-una-aventura-de-altura.jpeg'),
+	(6, 'Monster Hunter: la cacería comienza', 'Acción/Aventura', '2020', 'public/movies/monster_hunter.jpg'),
+	(7, 'Resident Evil 5: la venganza', 'Acción/Terror', '2012', 'public/movies/resident_evil_v.jpg'),
+	(8, 'Sonic la película', 'Infantil/Comedia', '2020', 'public/movies/sonic_la_pelicula.jpg'),
+	(9, 'Soul', 'Infantil/Comedia', '2020', 'public/movies/soul.jpg'),
+	(10, 'El increíble castillo vagabundo', 'Fantasía/Aventura', '2004', 'public/movies/castillo_vagabundo.jpg'),
+	(11, 'Avengers: Endgame', 'Acción/Ciencia ficción', '2019', 'public/movies/avengers-endgame.jpeg'),
+	(12, 'Misterio a bordo', 'Comedia/Misterio', '2019', 'public/movies/murder_mystery.jpg'),
+	(13, 'Dragon Ball Super Broly', ' Acción/Anime', '2018', 'public/movies/thumbs/images.jpg'),
+	(14, 'El rey león', 'Infantil/Aventura', '2019', 'public/movies/thumbs/The_Lion_King_Teaser_Poster_3_2019_Español.jpg'),
+	(15, 'A mi altura', 'Comedia/Romántica', '2019', 'public/movies/thumbs/0126387.jpg');
 /*!40000 ALTER TABLE `pelicula` ENABLE KEYS */;
 
 -- Volcando estructura para tabla cinemax.reserva

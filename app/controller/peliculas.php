@@ -18,7 +18,7 @@ class Peliculas extends Controller
         if ($resultado != null || !empty($resultado)) {
             foreach ($resultado as $data) {
                 echo "
-                    <div class='card' style='background: url(" . constant('URL') . 'public/movies/' . $data['IMAGEN'] . ");background-size: cover;' title='Titulo: " . $data['TITULO_PELICULA'] . "\nGenero: " . $data['GENERO'] . "\nAño: " . $data['AÑO_PUBLICACION'] . "'>
+                    <div class='card' style='background: url(" . constant('URL') .  $data['IMAGEN'] . ");background-size: cover;' title='Titulo: " . $data['TITULO_PELICULA'] . "\nGenero: " . $data['GENERO'] . "\nAño: " . $data['AÑO_PUBLICACION'] . "'>
                         <span></span>
                         <span></span>
                         <span></span>
@@ -147,7 +147,7 @@ class Peliculas extends Controller
 
         $new = str_replace("./", "", $data);
 
-        $thumbName = URL . $new . $_FILES['movieImage']['name'];
+        $thumbName = $new . $_FILES['movieImage']['name'];
 
         return $thumbName;
     }
