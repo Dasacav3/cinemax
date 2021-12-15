@@ -10,7 +10,7 @@
             $query = $this->db->connect()->prepare("SELECT * FROM usuario WHERE nombre_usuario = :nombre");
             $query->execute(['nombre' => $datos['user_name']]);
             $result = $query->fetch(PDO::FETCH_ASSOC);
-            if ($result['TIPO_USUARIO'] == 'Administrador' and password_verify($datos['password'], $result['CLAVE_USUARIO'])) {
+            if ($result['TIPO_USUARIO'] == 'Admin' and password_verify($datos['password'], $result['CLAVE_USUARIO'])) {
                 try {
                     $admin = $this->db->connect()->prepare("SELECT u.ID_USUARIO, u.NOMBRE_USUARIO, u.TIPO_USUARIO, a.ID_ADMIN, a.NOMBRE_ADMIN, a.APELLIDO_ADMIN, u.CLAVE_USUARIO FROM usuario as u INNER JOIN administrador as a ON u.ID_USUARIO = a.ID_USUARIO WHERE u.NOMBRE_USUARIO = :nombre");
                     $admin->execute(['nombre' => $datos['user_name']]);
