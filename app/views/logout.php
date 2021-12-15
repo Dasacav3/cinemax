@@ -1,9 +1,8 @@
 <?php
 
-    session_start();
-    session_unset();
-    session_destroy();
-    header("location: ". URL ."login")
+require_once __DIR__ . "/../config/config.php";
 
-
-?>
+session_start();
+session_unset();
+session_destroy();
+header("location: " . constant('URL'));
