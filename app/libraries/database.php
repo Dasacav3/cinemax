@@ -8,20 +8,22 @@ class Database
     private $user;
     private $password;
     private $charset;
+    private $port;
 
     public function __construct()
     {
-        $this->host = constant('HOST');
-        $this->db = constant('DB');
-        $this->user = constant('USER');
-        $this->password = constant('PASSWORD');
-        $this->charset = constant('CHARSET');
+        $this->host = constant('DB_HOST');
+        $this->db = constant('DB_NAME');
+        $this->user = constant('DB_USER');
+        $this->password = constant('DB_PASSWORD');
+        $this->charset = constant('DB_CHARSET');
+        $this->port = constant('DB_CHARSET');
     }
 
     protected function connect()
     {
         try {
-            $connection = "mysql:host=" . $this->host . ";dbname=" . $this->db . ";charset=" . $this->charset;
+            $connection = "mysql:host=" . $this->host . ";dbname=" . $this->db . ";charset=" . $this->charset . ";port=" . $this->port;
             $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_EMULATE_PREPARES => false];
             $pdo = new PDO($connection, $this->user, $this->password, $options);
 

@@ -23,7 +23,7 @@ class Login extends Controller
 
         $data = $this->model->select(['user_name' => $user, 'password' => $pass]);
 
-        if ( $data['TIPO_USUARIO'] == 'Administrador') {
+        if ( $data['TIPO_USUARIO'] == 'Admin') {
             echo "<p class='success admin'>Ingreso exitoso</p>";
         }else if($data['TIPO_USUARIO'] == 'Cliente'){
             echo "<p class='success cliente'>Ingreso exitoso</p>";

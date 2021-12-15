@@ -11,10 +11,4 @@ class Main extends Controller
     {
         $this->view->render('index');
     }
-
-
-    public function saludo()
-    {
-        echo "<p>Ejecutaste el metodo saludo</p>";
-    }
 }

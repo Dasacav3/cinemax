@@ -9,8 +9,8 @@ class Admin extends Controller
         parent::__construct();
         $this->session = new Session();
         $this->session->init();
-        if($this->session->getStatus() === 1 || empty($this->session->get('user')) || $this->session->get('user')['TIPO_USUARIO'] != 'Administrador'){
-            header('location: /cinemax/login');
+        if ($this->session->getStatus() === 1 || empty($this->session->get('user')) || $this->session->get('user')['TIPO_USUARIO'] != 'Admin') {
+            header('location:' . constant('URL') . 'login');
         }
     }
 
@@ -19,17 +19,19 @@ class Admin extends Controller
         $this->view->render('admin/main');
     }
 
-    public function reserva(){
+    public function reserva()
+    {
         $this->view->render('admin/reserva');
     }
 
-    public function usuario(){
+    public function usuario()
+    {
         $this->view->render('admin/usuario');
     }
 
     public function logout()
     {
-      $this->session->close();
-      header('location: /cinemax/login');
+        $this->session->close();
+        header('location:' . constant('URL'));
     }
 }

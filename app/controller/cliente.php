@@ -10,7 +10,7 @@ class Cliente extends Controller
         $this->session = new Session();
         $this->session->init();
         if($this->session->getStatus() === 1 || empty($this->session->get('user')) || $this->session->get('user')['TIPO_USUARIO'] != 'Cliente'){
-            header('location: /cinemax/login');
+            header('location:' . constant('URL') . 'login');
         }
     }
 
@@ -26,6 +26,6 @@ class Cliente extends Controller
     public function logout()
     {
       $this->session->close();
-      header('location: /cinemax/login');
+      header('location:' . constant('URL'));
     }
 }

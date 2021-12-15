@@ -30,7 +30,7 @@ class Reporte extends Controller
 
         $plantilla =  $this->model->plantilla($reservasData, $this->fechaFin, $this->fechaInicio, $today);
 
-        $css = file_get_contents("http://localhost/cinemax/public/css/pdf.css");
+        $css = file_get_contents(constant('URL') . "public/css/pdf.css");
 
         $mpdf->SetTitle("Reporte reservaciones");
         $mpdf->SetAuthor("Dasacav3");
