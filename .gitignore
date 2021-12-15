@@ -1,0 +1,4 @@
+vendor
+.env
+public/reportes
+public/movies
