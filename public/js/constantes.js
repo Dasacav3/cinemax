@@ -1,4 +1,4 @@
-export const URL = "http://localhost/cinemax/";
+export const URL = window.location.origin + '/';
 
 export function changeCursor() {
 	const body = document.getElementById("body");
