@@ -1,6 +1,6 @@
-# Sistema de reservas de cine
+# Cinema reservation system
 
-Cinemax es un aplicativo desarrollado en PHP y Javascript que permite a los clientes poder hacer reservas de cine. Dentro del sistema el cliente podra elegir: la pelicula a mirar, la sala y la cantidad de asientos a reservar. Por otro lado, el administrador podrá, añadir, editar, eliminar peliculas, manejar a los clientes dentro del sistema, añadir, editar,eliminar salas y administrar los asientos.
+Cinemax is an application developed in PHP and Javascript that allows customers to make movie reservations. Within the system the client will be able to choose: the movie to watch, the room and the number of seats to reserve. On the other hand, the administrator will be able to add, edit, delete movies, manage customers within the system, add, edit, delete rooms and manage seats.
 
 Autor: @Dasacav3
 
