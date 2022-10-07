@@ -1,0 +1,25 @@
+{
+  "name": "cinemax",
+  "version": "1.0.0",
+  "description": "Cinemax is an application developed in PHP and Javascript that allows customers to make movie reservations. Within the system the client will be able to choose: the movie to watch, the room and the number of seats to reserve. On the other hand, the administrator will be able to add, edit, delete movies, manage customers within the system, add, edit, delete rooms and manage seats.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dasacav3/cinemax.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dasacav3/cinemax/issues"
+  },
+  "homepage": "https://github.com/Dasacav3/cinemax#readme",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.0.0",
+    "sweetalert2": "^11.4.38"
+  }
+}
