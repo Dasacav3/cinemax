@@ -17,7 +17,7 @@ class Database
         $this->user = constant('DB_USER');
         $this->password = constant('DB_PASSWORD');
         $this->charset = constant('DB_CHARSET');
-        $this->port = constant('DB_CHARSET');
+        $this->port = constant('DB_PORT');
     }
 
     protected function connect()

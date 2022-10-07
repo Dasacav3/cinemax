@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="<?= constant('URL') ?>public/css/main.css">
     <link rel="stylesheet" href="<?= constant('URL') ?>public/css/movie_cards.css">
     <script src="https://kit.fontawesome.com/ef5bd2f060.js" crossorigin="anonymous"></script>
-    <script src="<?= constant('URL') ?>lib/sweetaler2/sweetalert2.all.min.js"></script>
-    <link rel="stylesheet" href="<?= constant('URL') ?>lib/sweetaler2/sweetalert2.all.min.css">
+    <script src="<?= constant('URL') ?>node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="<?= constant('URL') ?>node_modules/sweetalert2/dist/sweetalert2.min.css">
     <title>Cinemax - Inicio</title>
 </head>
 

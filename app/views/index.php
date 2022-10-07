@@ -7,8 +7,8 @@
     <link rel="shortcut icon" href="<?= constant('URL') ?>public/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="<?= constant('URL') ?>public/css/normalize.css">
     <link rel="stylesheet" href="<?= constant('URL') ?>public/css/main.css">
-    <link rel="stylesheet" href="<?= constant('URL') ?>lib/fontawesome-5.15.2/css/all.min.css" />
-    <script src="<?= constant('URL') ?>lib/fontawesome-5.15.2/js/all.min.js"></script>
+    <link rel="stylesheet" href="<?= constant('URL') ?>node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <script src="<?= constant('URL') ?>node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
     <title>Sistema de reservas cine</title>
 </head>
 
