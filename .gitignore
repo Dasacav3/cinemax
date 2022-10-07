@@ -3,3 +3,4 @@ vendor
 public/reportes
 public/movies
 schemas
+node_modules
